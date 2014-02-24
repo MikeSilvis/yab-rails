@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-BaryabRails::Application.config.secret_key_base = '7bcd35001adf841677aa8747a41c5a05b4cc9e3d9979e99cf9045de5871e554eaec36e8c88e7553c50486df228302724d65a70ac649e80042bd166d273d1ac15'
+Yab::Application.config.secret_key_base = '7bcd35001adf841677aa8747a41c5a05b4cc9e3d9979e99cf9045de5871e554eaec36e8c88e7553c50486df228302724d65a70ac649e80042bd166d273d1ac15'

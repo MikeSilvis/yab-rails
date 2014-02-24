@@ -6,7 +6,7 @@ require 'rubocop/rake_task'
 
 Rubocop::RakeTask.new
 
-BaryabRails::Application.load_tasks
+Yab::Application.load_tasks
 
 task :default => :rubocop
 task :default => :coffeelint
