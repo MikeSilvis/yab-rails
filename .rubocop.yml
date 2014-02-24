@@ -1,0 +1,78 @@
+AllCops:
+  Includes:
+    - "**/*.rake"
+
+Encoding:
+  Enabled: false
+
+LineLength:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+
+StringLiterals:
+  Enabled: false
+
+ClassLength:
+  Enabled: false
+
+MethodLength:
+  Enabled: false
+
+CollectionMethods:
+  Enabled: false
+
+Lambda:
+  Enabled: false
+
+Blocks:
+  Enabled: false
+
+WordArray:
+  Enabled: false
+
+PerlBackrefs:
+  Enabled: false
+
+CommentAnnotation:
+  Enabled: false
+
+LeadingCommentSpace:
+  Enabled: false
+
+SignalException:
+  Enabled: false
+
+AssignmentInCondition:
+  Enabled: false
+
+HandleExceptions:
+  Enabled: false
+
+Void:
+  Enabled: false
+
+RaiseArgs:
+  Enabled: false
+
+IndentationWidth:
+  Enabled: false
+
+EndAlignment:
+  Enabled: false
+
+EmptyLineBetweenDefs:
+  AllowAdjacentOneLineDefs: true
+
+WhileUntilModifier:
+  Enabled: false
+
+ParameterLists:
+  Enabled: false
+
+AsciiComments:
+  Enabled: false
+
+BlockNesting:
+  Max: 4
