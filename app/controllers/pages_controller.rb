@@ -1,5 +1,9 @@
 class PagesController < ApplicationController
-  def home
+  def partners
+
+  end
+
+  def consumers
 
   end
 end

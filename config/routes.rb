@@ -1,5 +1,8 @@
 Yab::Application.routes.draw do
 
-  root 'pages#home'
+  get 'partners', to: 'pages#partners'
+  get 'consumers', to: 'pages#consumers'
+
+  root 'pages#consumers'
 
 end
