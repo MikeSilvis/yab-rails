@@ -78,6 +78,15 @@ a {
   padding-top: 10px;
   padding-bottom: 10px;
 }
+.nav {
+  .btn-info {
+    color: white;
+  }
+}
+.navbar-default .navbar-nav > li > a.btn-info {
+  color:white;
+  background-color: transparent;
+}
 
 .navbar-default {
   background-color: transparent;
@@ -100,30 +109,12 @@ a {
     margin-top: 7px;
     padding: 6px 12px;
   }
-  .navbar-nav > li > a {
-    color: #999;
-    &:hover, &:focus {
-      color: #fff;
-    }
-    &.btn-success {
-      color: #fff;
-        color: #ffffff;
-        background-color: #47a447;
-        border-color: #398439;
-    }
-  }
 }
 
 @media (max-width: 320px) {
   .navbar-default .navbar-brand {
     position: relative;
     top: -5px;
-  }
-}
-
-@media (max-width: 800px) {
-  .navbar-default .navbar-nav > li > a {
-    color: #ccc;
   }
 }
 
