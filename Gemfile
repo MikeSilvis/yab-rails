@@ -18,5 +18,5 @@ gem 'bootstrap-sass'
 group :development, :test do
   gem 'rspec-rails'
   gem 'debugger'
-
+  gem 'simplecov'
 end
