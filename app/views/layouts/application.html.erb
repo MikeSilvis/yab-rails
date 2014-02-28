@@ -1,9 +1,29 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <title>BaryabRails</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <title>Yab - Rewards Everywhere You Eat</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <meta property="og:title" content="Yab" />
+  <meta property="og:type" content="company" />
+  <meta property="og:site_name" content="Yab" />
+  <meta property="og:description" content="Earn Rewards Everywhere You Eat" />
+  <meta property="og:url" content="www.getyab.com" />
+  <meta property="og:image" content="https://launchrock-assets.s3.amazonaws.com/facebook-files/Y6QCPJ0O_1393256661247.png?_=0" />
+
+  <meta name="google-site-verification" content="PFLW0l9Izp_JJxX4JkSfj9aDPtayBZ_ve4H9G3Zui6U" />
+
+
+  <link rel="shortcut icon" href="<%= asset_path 'landing/favicon.png' %>">
+  <link rel="apple-touch-icon" href="<%= asset_path 'landing/apple-touch-icon-57-precomposed.png' %>">
+  <link rel="apple-touch-icon" sizes="72x72" href="<%= asset_path 'landing/apple-touch-icon-72-precomposed.png' %>">
+  <link rel="apple-touch-icon" sizes="114x114" href="<%= asset_path 'landing/apple-touch-icon-144-precomposed.png' %>">
+
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
