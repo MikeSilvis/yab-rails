@@ -12,7 +12,9 @@
  *= require_tree .
  */
 
-$brand-success: #00c5aa;
+@import 'variables';
+$brand-success: $thirdColor;
+$btn-success-color: black;
 
 @import "font-awesome";
 @import "bootstrap";
