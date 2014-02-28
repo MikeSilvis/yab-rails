@@ -12,6 +12,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'active_model_serializers'
 gem 'rails_12factor'
+gem 'twitter-bootstrap-rails'
 
 group :development, :test do
   gem 'rspec-rails'
