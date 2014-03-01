@@ -288,7 +288,7 @@ a {
 
 @media (max-width: 800px) {
   .masthead {
-    background: #4e5d71 url("landing/img-header-sub.png") no-repeat center center;
+    background: #4e5d71 url("landing/collegeaveblursmall.png") no-repeat center center;
     background-size: cover;
   }
 }
@@ -389,7 +389,7 @@ a {
 }
 
 .price-tables {
-  background-color: #26292e;
+  background-color: $secondColor;
   color: #fff;
   padding: 70px 0;
   h2, h3, p {
@@ -409,7 +409,7 @@ a {
 }
 
 .price-head {
-  background-color: #5cb85c;
+  background-color: $firstColor;
   color: #fff;
   text-align: center;
   border-radius: 4px 4px 0 0;
