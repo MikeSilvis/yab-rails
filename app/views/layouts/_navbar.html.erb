@@ -15,15 +15,16 @@
     </div><!-- /.navbar-header -->
 
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav pull-right">
-          <li>
-            <%= link_to 'Partners', partners_path, :class => 'btn btn-info' %>
-          </li>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container -->
+      <% if false ## once we have the partners page ready %>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav pull-right">
+            <li>
+              <%= link_to 'Partners', partners_path, :class => 'btn btn-info' %>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container -->
+    <% end %>
 
 </nav>
 <!-- NAVBAR -->
