@@ -4,12 +4,12 @@ describe User do
 
   describe '.phone_number=' do
     let(:user) { User.new }
-    let(:real_number) { 8145746139 }
+    let(:real_number) { '8145746139' }
     subject { user.phone_number }
-    before { user.phone_number=(value) }
+    before { user.phone_number = value }
 
     context 'with pure numbers' do
-      let(:value) { 8145746139 }
+      let(:value) { 814_574_613_9 }
       it { should == real_number }
     end
 
