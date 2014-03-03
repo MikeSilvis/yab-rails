@@ -5,7 +5,15 @@ app.factory "User", ["$resource", ($resource) ->
 ]
 
 @newUserCtrl = ($scope, User) ->
+  $scope.formSubmitted = false
+
+  #$scope.formSubmitted = true
+  #$scope.newUser = {
+    #name: "Mike Silvis",
+    #phone_number: "8145746139"
+  #}
 
   $scope.addUser = ->
+    $scope.formSubmitted = true
+    $scope.newUser.beta = true
     user = User.save $scope.newUser
-    $scope.newUser = {}

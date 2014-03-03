@@ -1,0 +1,25 @@
+<div ng-controller='newUserCtrl'>
+
+  <div ng-hide='formSubmitted'>
+    <p>Earn rewards at your favorite State College restaurants and bars without taking your phone out of your pocket.</p>
+    <p>Sign up to test Yab for a chance to win a slice of Canyon Pizza every day for a semester.</p>
+
+    <form ng-submit='addUser()'>
+      <div class='form-group'>
+        <input type="text" class="form-control" placeholder="Full Name" ng-model='newUser.name'>
+      </div>
+      <div class='form-group'>
+        <input type="text" class="form-control" placeholder="Phone Number" ng-model='newUser.phone_number'>
+      </div>
+      <input type="hidden" ng-model='newUser.beta' value='true'>
+      <button type="submit" class="btn btn-success btn-block">I'm In!</button>
+    </form>
+  </div>
+
+  <div ng-show='formSubmitted'>
+    <p>Thanks for registering, {{newUser.name}}!</p>
+    <p>You have been added to the beta queue and will recieve a text when it is ready.</p>
+    <p>Get in faster by sharing!</p>
+  </div>
+
+</div>
