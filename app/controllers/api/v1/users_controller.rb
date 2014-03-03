@@ -1,6 +1,6 @@
 class Api::V1::UsersController < ApplicationController
   def create
-    render json: User.create(user_params)
+    render json: User.first_or_create(user_params)
   end
 
   private

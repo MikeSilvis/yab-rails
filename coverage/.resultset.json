@@ -18,6 +18,16 @@
       "/Users/silvis/Documents/code/yab-rails/app/controllers/application_controller.rb": [
         1,
         1,
+        null,
+        1,
+        null,
+        1,
+        5,
+        null,
+        null,
+        1,
+        5,
+        null,
         null
       ],
       "/Users/silvis/Documents/code/yab-rails/spec/controllers/pages_controller_spec.rb": [
@@ -93,6 +103,6 @@
         null
       ]
     },
-    "timestamp": 1393826909
+    "timestamp": 1393862282
   }
 }
