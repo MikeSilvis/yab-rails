@@ -18,8 +18,21 @@
 
   <div ng-show='formSubmitted'>
     <p>Thanks for registering, {{newUser.name}}!</p>
-    <p>You have been added to the beta queue and will recieve a text when it is ready.</p>
+    <p>You have been added to the beta queue and will recieve a text with a link to download the app.</p>
     <p>Get in faster by sharing!</p>
+
+    <div class='row'>
+      <div class='col-md-4'>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://getyab.com" data-counturl="http://getyab.com" data-lang="en" data-count="vertical" >Tweet</a>
+      </div>
+      <div class='col-md-4'>
+        <div class="g-plus" data-action="share" data-annotation="vertical-bubble" data-height="60" data-href="http://getyab.com"></div>
+      </div>
+      <div class='col-md-4'>
+        <div class="fb-share-button" data-href="http://getyab.com" data-type="box_count"></div>
+      </div>
+    </div>
+
   </div>
 
 </div>

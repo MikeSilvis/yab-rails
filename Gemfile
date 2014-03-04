@@ -17,6 +17,7 @@ gem 'angularjs-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'sass-rails'
+gem 'angular-ui-bootstrap-rails'
 
 group :development, :test do
   gem 'quiet_assets'
