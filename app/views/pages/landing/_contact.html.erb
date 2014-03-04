@@ -1,59 +1,24 @@
-<!-- CONTACT -->
 <div class="contact">
 	<div class="container">
-		<h3>Contact With Us</h3>
 		<div class="row margin-top">
-			<div class="col-md-6">
-				<h4>About Us</h4>
-				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-				<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
-				<div class="row margin-top">
-					<div class="col-md-6">
-						<h5>Address</h5>
-						<p>546 Lyon Street<br>San Francisco, CA 94117/p>
-					</div>
-					<div class="col-md-6">
-						<div class="responsive-bottom">
-							<h5>Email</h5>
-							<p><a href="#">support@sitename.com</a></p>
-							<p><a href="#">info@sitename.com</a></p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-6">
-				<form role="form">
-					<div class="form-group">
-						<label for="exampleInputName1">Name <span class="required">*</span></label>
-						<input type="name" class="form-control" id="exampleInputName1" placeholder="">
-					</div>
-
-					<div class="form-group">
-						<label for="exampleInputEmail1">Email <span class="required">*</span></label>
-						<input type="email" class="form-control" id="exampleInputEmail1" placeholder="">
-					</div>
-
-					<div class="form-group">
-						<label for="exampleInputText2">Messages <span class="required">*</span></label>
-						<textarea type="text" class="form-control" id="exampleInputText2" placeholder="" rows="3"></textarea>
-					</div>
-					<button type="submit" class="btn btn-success">Send Now</button>
-				</form>
-			</div>
+      <h3>The Team</h4>
+      <ul class='team'>
+        <li>
+          <%= link_to image_tag('team/mike.png'), 'http://mikesilvis.com' %>
+          <h5>Mike Silvis</h5>
+          <small>
+            <%= mail_to 'mike@getyab.com' %>
+          </small>
+        </li>
+        <li>
+          <%= link_to image_tag('team/alex.png'), '#' %>
+          <h5>Alex Leventer</h5>
+          <small>
+            <%= mail_to 'alex@getyab.com' %>
+          </small>
+        </li>
+      </ul>
 		</div><!-- /.row -->
 
-		<h3 class="title">Get In Touch!</h3>
-		<ul class="social-buttons">
-			<li>
-        <%= link_to image_tag('landing/facebook.png'), '#' %>
-			</li>
-			<li>
-        <%= link_to image_tag('landing/twitter.png'), 'http://twitter.com/getyab' %>
-			</li>
-			<li>
-        <%= link_to image_tag('landing/google-plus.png'), 'http://google.com/+getyabcard' %>
-			</li>
-		</ul>
 	</div><!-- /.container -->
 </div>
-<!-- CONTACT -->
