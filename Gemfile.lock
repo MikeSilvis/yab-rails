@@ -29,6 +29,8 @@ GEM
       tzinfo (~> 0.3.37)
     angular-ui-bootstrap-rails (0.10.0)
     angularjs-rails (1.2.13)
+    apipie-rails (0.1.0)
+      rails (>= 3.0.10)
     arel (4.0.2)
     ast (1.1.0)
     atomic (1.1.14)
@@ -159,6 +161,7 @@ DEPENDENCIES
   active_model_serializers
   angular-ui-bootstrap-rails
   angularjs-rails
+  apipie-rails
   bootstrap-sass
   coffee-rails (~> 4.0.0)
   coffeelint

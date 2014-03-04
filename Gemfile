@@ -13,15 +13,17 @@ gem 'rails_12factor'
 gem 'rubocop'
 gem 'uglifier', '>= 1.3.0'
 
+gem 'angular-ui-bootstrap-rails'
 gem 'angularjs-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'sass-rails'
-gem 'angular-ui-bootstrap-rails'
 
 group :development, :test do
   gem 'quiet_assets'
   gem 'rspec-rails'
   gem 'simplecov'
 end
+
+gem 'apipie-rails'
 

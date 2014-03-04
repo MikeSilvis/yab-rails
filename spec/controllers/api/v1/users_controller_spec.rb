@@ -8,7 +8,9 @@ describe Api::V1::UsersController do
       subject do
         post :create, user: params
       end
-      it { expect { subject }.to change { User.count }.by(1) }
+      it 'creates a user', :show_in_doc do
+        expect { subject }.to change { User.count }.by(1)
+      end
     end
     context 'json response' do
       before { post :create, user: params }
