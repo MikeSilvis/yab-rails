@@ -17,3 +17,4 @@ app.factory "User", ["$resource", ($resource) ->
     $scope.formSubmitted = true
     $scope.newUser.beta = true
     user = User.save $scope.newUser
+]
