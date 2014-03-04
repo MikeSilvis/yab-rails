@@ -19,7 +19,6 @@ gem 'font-awesome-rails'
 gem 'sass-rails'
 
 group :development, :test do
-  gem 'debugger'
   gem 'quiet_assets'
   gem 'rspec-rails'
   gem 'simplecov'
