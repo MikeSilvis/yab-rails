@@ -4,7 +4,7 @@ app.factory "User", ["$resource", ($resource) ->
   $resource("/api/v1/users/:id", {id: "@id"})
 ]
 
-@newUserCtrl = ($scope, User) ->
+@newUserCtrl  = ["$scope", "User", ($scope, User) ->
   $scope.formSubmitted = false
 
   #$scope.formSubmitted = true
