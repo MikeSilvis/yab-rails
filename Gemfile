@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 
 gem 'active_model_serializers'
+gem 'apipie-rails'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'coffeelint'
 gem 'devise'
@@ -24,6 +25,4 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'simplecov'
 end
-
-gem 'apipie-rails'
 

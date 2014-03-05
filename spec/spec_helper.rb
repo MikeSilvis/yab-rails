@@ -43,5 +43,5 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
   config.treat_symbols_as_metadata_keys_with_true_values = true
-  config.filter_run show_in_doc: true# if ENV['APIPIE_RECORD']
+  config.filter_run show_in_doc: true
 end
