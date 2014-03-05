@@ -9,6 +9,9 @@
         <input type="text" class="form-control" placeholder="Full Name" ng-model='newUser.name'>
       </div>
       <div class='form-group'>
+        <input type="text" class="form-control" placeholder="Email" ng-model='newUser.email'>
+      </div>
+      <div class='form-group'>
         <input type="text" class="form-control" placeholder="Phone Number" ng-model='newUser.phone_number'>
       </div>
       <input type="hidden" ng-model='newUser.beta' value='true'>
@@ -18,7 +21,7 @@
 
   <div ng-show='formSubmitted'>
     <p>Thanks for registering, {{newUser.name}}!</p>
-    <p>You have been added to the beta queue and will recieve a text with a link to download the app.</p>
+    <p>You have been added to the testers queue and will recieve a text with a link to download the app.</p>
     <p>Get in faster by sharing!</p>
 
     <div class='row'>
