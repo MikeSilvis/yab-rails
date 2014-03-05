@@ -17,6 +17,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'angular-ui-bootstrap-rails'
 gem 'angularjs-rails'
 gem 'bootstrap-sass'
+gem 'intercom-rails', '~> 0.2.24'
 gem 'font-awesome-rails'
 gem 'sass-rails'
 
