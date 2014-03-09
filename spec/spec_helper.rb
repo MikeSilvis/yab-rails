@@ -1,10 +1,13 @@
-# This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'simplecov'
 SimpleCov.start
+
+ActiveRecord::Base.logger.level = Logger::INFO
+ActionController::Base.logger.level = Logger::ERROR
+Rails.logger.level = Logger::ERROR
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -38,4 +41,6 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+  config.treat_symbols_as_metadata_keys_with_true_values = true
+  config.filter_run show_in_doc: true if ENV['APIPIE_RECORD']
 end

@@ -288,7 +288,7 @@ a {
 
 @media (max-width: 800px) {
   .masthead {
-    background: #4e5d71 url("landing/collegeaveblursmall.png") no-repeat center center;
+    background: #4e5d71 url(image_path("landing/collegeaveblursmall.png")) no-repeat center center;
     background-size: cover;
   }
 }
@@ -311,7 +311,7 @@ a {
 
 .services {
   text-align: center;
-  padding: 170px 0 70px 0;
+  padding: 70px 0 20px 0;
   .fa {
     font-size: 73px;
     margin-top: 10px;
@@ -334,7 +334,7 @@ a {
 .features {
   background-color: #2f3238;
   color: #fff;
-  padding-top: 70px;
+  padding-top: 40px;
   .btn {
     margin-top: 20px;
     margin-bottom: 20px;

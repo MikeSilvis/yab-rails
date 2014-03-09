@@ -1,0 +1,26 @@
+$radius: 100px;
+
+.team {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 0;
+  margin-left: 0;
+  padding-left: 0;
+  list-style: none;
+  li {
+    display: inline-block;
+    line-height: 1;
+    padding: 10px 30px;
+  }
+  img {
+      margin-bottom: 20px;
+    border-radius: $radius;
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border: 1px solid white;
+    display: block;
+    width: 100px;
+    -webkit-transition: 0.25s;
+    transition: 0.25s;
+  }
+}

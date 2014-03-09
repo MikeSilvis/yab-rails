@@ -1,0 +1,9 @@
+@app.controller "iphoneSliderCtrl", ["$scope", ($scope) ->
+  $scope.intervalTimer = 5000
+  $scope.slides = []
+
+  $scope.slides.push {
+    image: '<%= asset_path 'landing/iphone5yab.png' %>'
+  }
+
+]

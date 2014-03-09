@@ -1,0 +1,12 @@
+.services, .features, .level {
+  text-align: center;
+
+  p {
+    font-size: 120%;
+  }
+  .col-md-5, .col-md-4 {
+    float:none;
+    display:inline-block;
+    vertical-align:middle;
+  }
+}

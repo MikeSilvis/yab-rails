@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app='Yab'>
 <head>
   <title>Yab Loyalty Program App</title>
   <meta charset="UTF-8">
@@ -15,7 +15,7 @@
 
   <meta name="google-site-verification" content="PFLW0l9Izp_JJxX4JkSfj9aDPtayBZ_ve4H9G3Zui6U" />
 
-  <link rel="shortcut icon" href="<%= asset_path 'landing/favicon.png' %>">
+  <link rel="shortcut icon" href="<%= asset_path 'favicon.png' %>">
   <link rel="apple-touch-icon" href="<%= asset_path 'landing/apple-touch-icon-57-precomposed.png' %>">
   <link rel="apple-touch-icon" sizes="72x72" href="<%= asset_path 'landing/apple-touch-icon-72-precomposed.png' %>">
   <link rel="apple-touch-icon" sizes="114x114" href="<%= asset_path 'landing/apple-touch-icon-144-precomposed.png' %>">
@@ -25,6 +25,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div id="fb-root"></div>
 
 <%= yield %>
 

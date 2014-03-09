@@ -1,0 +1,41 @@
+<div ng-controller='newUserCtrl'>
+
+  <div ng-hide='formSubmitted'>
+    <p>Earn rewards at your favorite State College restaurants and bars without taking your phone out of your pocket.</p>
+    <p>Sign up to test Yab for a chance to win a slice of Canyon Pizza every day for a semester.</p>
+
+    <form ng-submit='addUser()'>
+      <div class='form-group'>
+        <input type="text" class="form-control" placeholder="Full Name" ng-model='newUser.name'>
+      </div>
+      <div class='form-group'>
+        <input type="text" class="form-control" placeholder="Email" ng-model='newUser.email'>
+      </div>
+      <div class='form-group'>
+        <input type="text" class="form-control" placeholder="Phone Number" ng-model='newUser.phone_number'>
+      </div>
+      <input type="hidden" ng-model='newUser.beta' value='true'>
+      <button type="submit" class="btn btn-success btn-block">I'm In!</button>
+    </form>
+  </div>
+
+  <div ng-show='formSubmitted'>
+    <p>Thanks for registering, {{newUser.name}}!</p>
+    <p>You have been added to the testers queue and will recieve a text with a link to download the app.</p>
+    <p>Get in faster by sharing!</p>
+
+    <div class='row'>
+      <div class='col-md-4'>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://getyab.com" data-counturl="http://getyab.com" data-lang="en" data-count="vertical" >Tweet</a>
+      </div>
+      <div class='col-md-4'>
+        <div class="g-plus" data-action="share" data-annotation="vertical-bubble" data-height="60" data-href="http://getyab.com"></div>
+      </div>
+      <div class='col-md-4'>
+        <div class="fb-share-button" data-href="http://getyab.com" data-type="box_count"></div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
