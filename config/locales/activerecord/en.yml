@@ -1,0 +1,5 @@
+---
+  en:
+    activerecord:
+      user:
+        welcome_message: "Hello!"
