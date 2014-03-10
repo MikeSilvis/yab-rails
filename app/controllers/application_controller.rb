@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
   #before_filter :authenticate_user_from_token!
   after_filter :set_csrf_cookie_for_ng
 
-
   def verified_request?
     super || form_authenticity_token == request.headers['X-XSRF-TOKEN']
   end
