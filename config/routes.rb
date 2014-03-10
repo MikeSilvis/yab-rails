@@ -13,4 +13,6 @@ Yab::Application.routes.draw do
     end
   end
 
+  devise_for :user
+
 end

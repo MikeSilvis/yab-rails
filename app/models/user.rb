@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   before_save :set_authentication_token, if: proc { |u| u.authentication_token.blank? }
+  devise :database_authenticatable
 
   def self.find_or_create_from_facebook(token)
     facebook = Yab::Facebook.new(token).me

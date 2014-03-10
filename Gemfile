@@ -24,7 +24,7 @@ gem 'sass-rails'
 group :development, :test do
   gem 'quiet_assets'
   gem 'rspec-rails'
-  gem 'debugger' if ENV['debugger']
+  gem 'debugger' if ENV['DEBUGGER']
   gem 'simplecov'
 end
 
