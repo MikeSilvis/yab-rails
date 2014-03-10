@@ -1,9 +1,6 @@
 class PagesController < ApplicationController
-  def partners
 
-  end
+  def partners; end
+  def consumers; end
 
-  def consumers
-
-  end
 end

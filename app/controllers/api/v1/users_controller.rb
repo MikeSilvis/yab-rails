@@ -7,7 +7,15 @@ class Api::V1::UsersController < ApplicationController
     param :phone_number, :undef
   end
   def create
-    render json: User.first_or_create(user_params)
+    render json: User.first_or_create(params.require(:user).permit(:phone_number, :name, :beta, :email))
+  end
+
+  def index
+    render json: User.all
+  end
+
+  def show
+    render json: User.find_by!(authentication_token: params.require(:id))
   end
 
   private

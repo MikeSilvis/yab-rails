@@ -26,6 +26,10 @@ RSpec.configure do |config|
   # config.mock_with :flexmock
   # config.mock_with :rr
 
+  config.before(:each) do
+    Yab::Facebook.any_instance.stub(:me).and_return("id" => "1476420296", "name" => "Mike Silvis", "first_name" => "Mike", "last_name" => "Silvis", "link" => "https://www.facebook.com/mike.silvis", "birthday" => "05/04/1990", "location" => { "id" => "114952118516947", "name" => "San Francisco, California" }, "gender" => "male", "email" => "mikesilvis@gmail.com", "timezone" => -7, "locale" => "en_US", "verified" => true, "updated_time" => "2014-02-23T02:47:57+0000", "username" => "mike.silvis")
+  end
+
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.

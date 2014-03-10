@@ -8,6 +8,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'coffeelint'
 gem 'devise'
 gem 'jquery-rails'
+gem 'koala'
 gem 'pg'
 gem 'rails', '4.0.2'
 gem 'rails_12factor'
@@ -23,6 +24,7 @@ gem 'sass-rails'
 group :development, :test do
   gem 'quiet_assets'
   gem 'rspec-rails'
+  gem 'debugger'
   gem 'simplecov'
 end
 

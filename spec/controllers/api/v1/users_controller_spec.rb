@@ -19,4 +19,11 @@ describe Api::V1::UsersController do
     end
   end
 
+  describe 'GET :show' do
+    let(:user) { User.create(name: 'Mike Silvis') }
+    before { get :show, id: user.authentication_token }
+    it { assert_response :success }
+    it { JSON.parse(response.body)['user']['name'].should == user.name }
+  end
+
 end
