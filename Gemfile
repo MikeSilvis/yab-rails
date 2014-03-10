@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.0'
+ruby '2.0.0'
 
 gem 'active_model_serializers'
 gem 'apipie-rails'
@@ -24,7 +24,7 @@ gem 'sass-rails'
 group :development, :test do
   gem 'quiet_assets'
   gem 'rspec-rails'
-  gem 'debugger'
+  gem 'debugger' if ENV['debugger']
   gem 'simplecov'
 end
 
