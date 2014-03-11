@@ -1,10 +1,9 @@
 class ApplicationController < ActionController::Base
   attr_accessor :current_user
-  protect_from_forgery with: :exception
+  #protect_from_forgery with: :exception
 
-  # Simply not needed yet.
   before_filter :authenticate_user_from_token!
-  after_filter :set_csrf_cookie_for_ng
+  after_filter :set_csrf_cookie
 
   def verified_request?
     super || form_authenticity_token == request.headers['X-XSRF-TOKEN']
@@ -12,7 +11,7 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def set_csrf_cookie_for_ng
+  def set_csrf_cookie
     cookies['XSRF-TOKEN'] = form_authenticity_token if protect_against_forgery?
   end
 
