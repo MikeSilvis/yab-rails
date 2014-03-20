@@ -6,5 +6,4 @@ class UserSerializer < ActiveModel::Serializer
       hash[:authentication_token] = object.authentication_token if object == current_user
     end
   end
-
 end

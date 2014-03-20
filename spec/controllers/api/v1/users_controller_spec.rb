@@ -20,8 +20,18 @@ describe Api::V1::UsersController do
   end
 
   describe 'GET :show' do
-    let(:user_1) { User.create(name: 'Mike Silvis', email: 'mike@getyab.com') }
-    let(:user_2) { User.create(name: 'Alex Leventer', email: 'alex@getyab.com') }
+    let(:user_1) do
+      User.create(name: 'Mike Silvis', email: 'mike@getyab.com')
+    end
+    let(:user_2) do
+      User.create(name: 'Alex Leventer', email: 'alex@getyab.com')
+    end
+    let(:params) do
+      { id: id, authentication_token: user_1.authentication_token }
+    end
+    let(:user_response) { JSON.parse(response.body)['user'] }
+    let(:auth_token) { user_response['authentication_token'] }
+
     context 'unauthenticated request' do
       before { get :show, id: user_1.authentication_token }
       it { assert_response :success }
@@ -29,14 +39,17 @@ describe Api::V1::UsersController do
     end
 
     context 'authenticated request for self' do
-      before { get :show, id: user_1.authentication_token, authentication_token: user_1.authentication_token  }
-      it { JSON.parse(response.body)['user']['authentication_token'].should == user_1.authentication_token }
+      let(:id) { user_1.authentication_token }
+      before { get :show, params  }
+      it { auth_token.should == user_1.authentication_token }
     end
 
     context 'authenticated request for another user' do
-      before { get :show, id: user_2.authentication_token, authentication_token: user_1.authentication_token  }
-      it { JSON.parse(response.body)['user']['authentication_token'].should be_nil }
+      let(:id) { user_2.authentication_token }
+      before { get :show, params  }
+      it { auth_token.should be_nil }
     end
+
   end
 
 end

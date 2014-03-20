@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
   attr_accessor :current_user
-  #protect_from_forgery with: :exception
+  protect_from_forgery with: :exception
 
-  before_filter :authenticate_user_from_token!
-  after_filter :set_csrf_cookie
+  before_action :authenticate_user_from_token!
+  after_action :set_csrf_cookie
 
   def verified_request?
     super || form_authenticity_token == request.headers['X-XSRF-TOKEN']
@@ -19,5 +19,4 @@ class ApplicationController < ActionController::Base
     token              = params[:authentication_token].presence
     self.current_user  = token && User.find_by(authentication_token: token)
   end
-
 end

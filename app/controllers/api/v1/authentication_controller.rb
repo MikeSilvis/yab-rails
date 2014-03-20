@@ -1,5 +1,4 @@
 class Api::V1::AuthenticationController < ApplicationController
-
   def create
     render json: current_user
   end
@@ -13,5 +12,4 @@ class Api::V1::AuthenticationController < ApplicationController
   def current_user
     @current_user ||= User.find_or_create_from_facebook(access_token['facebook_auth_token'])
   end
-
 end
