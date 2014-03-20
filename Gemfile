@@ -13,13 +13,13 @@ gem 'pg'
 gem 'rails', '4.0.4'
 gem 'rails_12factor'
 gem 'rubocop'
-gem 'uglifier'
+gem 'uglifier', '>= 1.3.0'
 
 gem 'angular-ui-bootstrap-rails'
 gem 'angularjs-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
-gem 'sass-rails'
+gem 'sass-rails', '4.0.2'
 
 group :development, :test do
   gem 'quiet_assets'
