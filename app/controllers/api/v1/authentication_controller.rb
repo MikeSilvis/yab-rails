@@ -1,4 +1,4 @@
-class Api::V1::AuthenticationController < ApplicationController
+class Api::V1::AuthenticationController < Api::BaseController
   def create
     render json: current_user
   end
