@@ -10,6 +10,6 @@ class Api::V1::AuthenticationController < Api::BaseController
   end
 
   def current_user
-    @current_user ||= User.find_or_create_from_facebook(access_token['facebook_auth_token'])
+    @current_user ||= User.find_or_create_from_facebook(access_token[:facebook_auth_token])
   end
 end
