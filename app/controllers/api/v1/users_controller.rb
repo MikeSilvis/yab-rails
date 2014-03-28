@@ -6,7 +6,7 @@ class Api::V1::UsersController < Api::BaseController
     param :phone_number, :undef
   end
   def create
-    render json: User.first_or_create(user_params)
+    render json: User.where(user_params).first_or_create!
   end
 
   def index
