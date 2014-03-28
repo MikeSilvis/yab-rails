@@ -19,11 +19,11 @@ gem 'angular-ui-bootstrap-rails'
 gem 'angularjs-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
+gem 'geokit-rails'
 gem 'sass-rails', '4.0.2'
 
 group :development, :test do
   gem 'quiet_assets'
   gem 'rspec-rails'
-  gem 'simplecov'
 end
 
