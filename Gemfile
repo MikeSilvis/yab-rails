@@ -25,5 +25,6 @@ group :development, :test do
   gem 'quiet_assets'
   gem 'rspec-rails'
   gem 'simplecov'
+  gem 'debugger'
 end
 

@@ -33,19 +33,18 @@ describe Api::V1::UsersController do
     let(:auth_token) { user_response['authentication_token'] }
 
     context 'unauthenticated request' do
-      before { get :show, id: user_1.authentication_token }
-      it { assert_response :success }
-      it { JSON.parse(response.body)['user']['name'].should == user_1.name }
+      before { get :show, id: user_1.id }
+      it { assert_response :unauthorized }
     end
 
     context 'authenticated request for self' do
-      let(:id) { user_1.authentication_token }
+      let(:id) { user_1.id }
       before { get :show, params  }
       it { auth_token.should == user_1.authentication_token }
     end
 
     context 'authenticated request for another user' do
-      let(:id) { user_2.authentication_token }
+      let(:id) { user_2.id }
       before { get :show, params  }
       it { auth_token.should be_nil }
     end

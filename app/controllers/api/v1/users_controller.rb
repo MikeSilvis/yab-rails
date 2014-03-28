@@ -1,12 +1,8 @@
 class Api::V1::UsersController < Api::BaseController
-  # DOC GENERATED AUTOMATICALLY: REMOVE THIS LINE TO PREVENT REGENARATING NEXT TIME
-  api :POST, "/v1/users", "Create an user"
-  param :user, Hash do
-    param :name, :undef
-    param :phone_number, :undef
-  end
+  skip_before_action :authenticate_user!, only: [:create]
+
   def create
-    render json: User.first_or_create(user_params)
+    render json: User.where(user_params).first_or_create!
   end
 
   def index
@@ -14,7 +10,7 @@ class Api::V1::UsersController < Api::BaseController
   end
 
   def show
-    render json: User.find_by!(authentication_token: params.require(:id))
+    render json: User.find(params.require(:id))
   end
 
   private
