@@ -3,7 +3,7 @@ class ConvertLatitudeToBigDecimal < ActiveRecord::Migration
     remove_column :locations, :latitude
     remove_column :locations, :longitude
 
-    add_column :locations, :lat, :decimal, precision: 15, scale: 10
-    add_column :locations, :lng, :decimal, precision: 15, scale: 10
+    add_column :locations, :latitude, :decimal, precision: 15, scale: 10
+    add_column :locations, :longitude, :decimal, precision: 15, scale: 10
   end
 end

@@ -1,6 +1,6 @@
 class Api::V1::LocationsController < Api::BaseController
   def create
-    render json: current_user.locations.where(location_params).first_or_create!
+    render json: current_user.find_location(location_params[:latitude], location_params[:longitude])
   end
 
   private

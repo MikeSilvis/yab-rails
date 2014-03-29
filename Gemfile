@@ -25,5 +25,6 @@ gem 'sass-rails', '4.0.2'
 group :development, :test do
   gem 'quiet_assets'
   gem 'rspec-rails'
+  gem 'debugger'
 end
 

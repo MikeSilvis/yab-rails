@@ -4,6 +4,10 @@ class User < ActiveRecord::Base
 
   has_many :locations, as: :locationable
 
+  def find_location(lat, lng)
+    locations.within_range(lat, lng).first_or_create(latitude: lat, longitude: lng)
+  end
+
   def self.find_or_create_from_facebook(token)
     facebook = Yab::Facebook.new(token).me
     params = {
