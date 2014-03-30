@@ -15,6 +15,7 @@ Yab::Application.routes.draw do
     end
   end
 
-  devise_for :user
+  devise_for :users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
 
 end

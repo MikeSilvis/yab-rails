@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Api::V1::LocationsController do
   describe 'POST :create' do
-    let(:user) { User.create!(name: 'Mike Silvis') }
+    let(:user) { User.create!(name: 'Mike Silvis', email: 'mikesilvis@gmail.com') }
     let(:location_response) { JSON.parse(response.body)['location'] }
 
     let(:latitude) { 123.234343 }

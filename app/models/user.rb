@@ -1,5 +1,10 @@
 class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable,
+         :recoverable, :rememberable, :trackable, :validatable
   before_save :set_authentication_token, if: proc { |u| u.authentication_token.blank? }
+  before_validation :set_random_password, on: :create
   devise :database_authenticatable
 
   has_many :locations, as: :locationable
@@ -18,7 +23,7 @@ class User < ActiveRecord::Base
       email: facebook['email']
 
     }
-    User.where(email: params[:email]).first_or_create(params)
+    User.where(email: params[:email]).first_or_create!(params)
   end
 
   def phone_number=(value)
@@ -36,5 +41,9 @@ class User < ActiveRecord::Base
       token = Devise.friendly_token
       break token unless User.find_by(authentication_token: token)
     end
+  end
+
+  def set_random_password
+    self.password = Devise.friendly_token
   end
 end
