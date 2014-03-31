@@ -19,7 +19,6 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_admin_user!
-    @current_user = self.warden.user
+    @current_user = warden.user
   end
-
 end
