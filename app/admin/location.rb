@@ -9,4 +9,9 @@ ActiveAdmin.register Location do
     column :longitude
     actions
   end
+  controller do
+    def permitted_params
+      params.permit!
+    end
+  end
 end

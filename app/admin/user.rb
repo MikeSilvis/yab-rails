@@ -17,15 +17,19 @@ ActiveAdmin.register User do
   filter :created_at
 
   form do |f|
-    f.inputs "Admin Details" do
+    f.inputs "User Details" do
       f.input :email
       f.input :name
       f.input :phone_number
       f.input :admin
-      f.input :password
-      f.input :password_confirmation
     end
     f.actions
+  end
+
+  controller do
+    def permitted_params
+      params.permit!
+    end
   end
 
 end

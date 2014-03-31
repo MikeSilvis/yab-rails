@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  before_action :set_flash
   protect_from_forgery with: :exception
   attr_reader :current_user
   after_action :set_csrf_cookie
@@ -21,10 +20,6 @@ class ApplicationController < ActionController::Base
 
   def authenticate_admin_user!
     @current_user = self.warden.user
-  end
-
-  def set_flash
-    flash[:alert] = 'hello'
   end
 
 end
