@@ -286,7 +286,7 @@ a {
 ================================================== */
 
 .masthead {
-  background: #000 url(image_path('landing/collegeaveblur.png')) no-repeat center center;
+  background: #000 url(image_path('landing/collegeaveblurdark.png')) no-repeat center center;
   background-size: cover;
   color: #fff;
   padding-top: 25px;
@@ -294,7 +294,7 @@ a {
 
 @media (max-width: 800px) {
   .masthead {
-    background: #000 url(image_path("landing/collegeaveblursmall.png")) no-repeat center center;
+    background: #000 url(image_path("landing/collegeaveblurdarksmall.png")) no-repeat center center;
     background-size: cover;
   }
 }
