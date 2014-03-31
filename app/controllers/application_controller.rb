@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
-  attr_accessor :current_user
+  before_action :set_flash
   protect_from_forgery with: :exception
+  attr_reader :current_user
   after_action :set_csrf_cookie
 
   def verified_request?
@@ -12,4 +13,18 @@ class ApplicationController < ActionController::Base
   def set_csrf_cookie
     cookies['XSRF-TOKEN'] = form_authenticity_token if protect_against_forgery?
   end
+
+  def access_denied(exception)
+    redirect_path = @current_user ? root_path : user_session_path
+    redirect_to redirect_path, alert: exception.message
+  end
+
+  def authenticate_admin_user!
+    @current_user = self.warden.user
+  end
+
+  def set_flash
+    flash[:alert] = 'hello'
+  end
+
 end
