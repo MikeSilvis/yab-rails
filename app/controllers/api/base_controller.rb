@@ -5,7 +5,7 @@ class Api::BaseController < ApplicationController
   private
 
   def authenticate_user!
-    self.current_user  = User.find_by(authentication_token: params[:authentication_token])
+    @current_user  = User.find_by(authentication_token: params[:authentication_token])
     render json: :unauthorized, status: :unauthorized unless current_user
   end
 end

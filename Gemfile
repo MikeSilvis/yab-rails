@@ -5,6 +5,7 @@ ruby '2.0.0'
 gem 'active_model_serializers'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'apipie-rails'
+gem 'cancan'
 gem 'coffee-rails'
 gem 'coffeelint'
 gem 'devise'
@@ -24,8 +25,8 @@ gem 'geokit-rails'
 gem 'sass-rails', '4.0.2'
 
 group :development, :test do
+  gem 'debugger'
   gem 'quiet_assets'
   gem 'rspec-rails'
-  gem 'debugger'
 end
 

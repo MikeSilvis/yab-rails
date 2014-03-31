@@ -1,10 +1,7 @@
 Yab::Application.routes.draw do
 
-  apipie
   get 'partners', to: 'pages#partners'
   get 'consumers', to: 'pages#consumers'
-
-  root 'pages#consumers'
 
   namespace :api do
     namespace :v1 do
@@ -15,7 +12,9 @@ Yab::Application.routes.draw do
     end
   end
 
-  devise_for :users, ActiveAdmin::Devise.config
+  apipie
+  devise_for :users
   ActiveAdmin.routes(self)
 
+  root 'pages#consumers'
 end
