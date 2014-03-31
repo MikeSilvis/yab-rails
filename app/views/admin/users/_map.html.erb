@@ -1,0 +1,8 @@
+<div ng-app="YabAdmin">
+  <div class="panel" ng-controller="mapCtrl">
+    <h3>Google Map</h3>
+    <div class="panel_contents">
+      <div id="multi_markers" style="height: 400px;" data-locations="<%= resource.lat_lng.to_json %>"></div>
+    </div>
+  </div>
+</div>

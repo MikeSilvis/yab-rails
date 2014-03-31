@@ -3,12 +3,6 @@
     beta: true
   }
 
-  #$scope.formSubmitted = true
-  #$scope.newUser = {
-    #name: "Mike Silvis",
-    #phone_number: "8145746139"
-  #}
-
   $scope.addUser = ->
     _gaq.push(['_trackEvent', 'CTA', 'Beta Signup'])
 

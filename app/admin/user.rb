@@ -11,6 +11,16 @@ ActiveAdmin.register User do
     actions
   end
 
+  show do
+    attributes_table do
+      row :email
+      row :name
+      row :phone_number
+      row :market
+    end
+    render 'map'
+  end
+
   filter :email
   filter :current_sign_in_at
   filter :sign_in_count

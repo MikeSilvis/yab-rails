@@ -31,6 +31,10 @@ class User < ActiveRecord::Base
     super(value.to_s.gsub(/\D/, ''))
   end
 
+  def lat_lng
+    locations.map { |l| { lat: l.latitude, lng: l.longitude } }
+  end
+
   private
 
   def set_authentication_token
