@@ -16,6 +16,6 @@ class Api::V1::UsersController < Api::BaseController
   private
 
   def user_params
-    params.require(:user).permit(:phone_number, :name, :beta, :email)
+    params.require(:user).permit(:phone_number, :name, :beta, :email, :market_id)
   end
 end

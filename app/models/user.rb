@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable
 
   has_many :locations, as: :locationable
+  belongs_to :market
 
   def find_location(lat, lng)
     locations.within_range(lat, lng).first_or_create(latitude: lat, longitude: lng)
