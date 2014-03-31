@@ -13,7 +13,7 @@ Yab::Application.routes.draw do
   end
 
   apipie
-  devise_for :users
+  devise_for :users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
   root 'pages#consumers'

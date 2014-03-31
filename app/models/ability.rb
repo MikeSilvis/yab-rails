@@ -2,7 +2,6 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    debugger
     user ||= User.new
 
     if user.admin?
