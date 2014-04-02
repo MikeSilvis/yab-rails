@@ -13,7 +13,6 @@ ActiveAdmin.register Merchant do
       end
     end
 
-
     f.inputs 'Contact' do
       f.has_many :users, allow_destroy: true, heading: '' do |cf|
         cf.input :email

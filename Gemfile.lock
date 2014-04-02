@@ -242,6 +242,7 @@ DEPENDENCIES
   coffee-rails
   coffeelint
   debugger
+  debugger-ruby_core_source
   devise
   font-awesome-rails
   geokit-rails
