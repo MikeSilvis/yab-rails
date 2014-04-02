@@ -4,6 +4,7 @@
     internal:
       id: 'multi_markers'
   , ->
-    handler.bounds.extendWith handler.addMarkers($('#multi_markers').data('locations'))
+    marker = handler.addMarkers($('#multi_markers').data('locations'))
+    handler.bounds.extendWith marker
     handler.fitMapToBounds()
 ]

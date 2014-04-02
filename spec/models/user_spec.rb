@@ -55,4 +55,32 @@ describe User do
     end
   end
 
+  describe '.register_location' do
+    let(:user) { User.create!(name: 'Mike Silvis', email: 'mikesilvis@gmail.com') }
+    let(:latitudes) { [123.234343, 123.234123, 124.234123] }
+    let(:longitudes) { [321.2342432, 321.2342312, 322.2342312] }
+    let(:lat_param) { latitudes.first }
+    let(:lng_param) { longitudes.first }
+    subject { user.register_location(lat_param, lng_param) }
+
+    context 'creates a new location when one does not exist' do
+      it { expect { subject }.to change { Location.count }.by(1) }
+      it { subject.latitude.should == lat_param }
+    end
+
+    context 'for an existing lat lng' do
+      let!(:recent_location) do
+        user.locations.create!(latitude: latitudes[1], longitude: longitudes[1])
+      end
+      context 'when it is over the time limit' do
+        before { recent_location.update_attribute(:created_at, 1.days.ago) }
+        it { expect { subject }.to change { Location.count }.by(1) }
+      end
+      context 'when it is within the time limit' do
+        it { expect { subject }.to change { Location.count }.by(0) }
+      end
+    end
+
+  end
+
 end

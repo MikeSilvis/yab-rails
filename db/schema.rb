@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140331014311) do
+ActiveRecord::Schema.define(version: 20140402033905) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,12 +38,19 @@ ActiveRecord::Schema.define(version: 20140331014311) do
     t.datetime "updated_at"
     t.decimal  "latitude",          precision: 15, scale: 10
     t.decimal  "longitude",         precision: 15, scale: 10
+    t.integer  "ping_count"
+    t.string   "street"
+    t.string   "state"
+    t.integer  "zipcode"
+    t.string   "city"
+    t.integer  "market_id"
   end
 
   create_table "markets", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "beta",       default: true
   end
 
   create_table "merchants", force: true do |t|
@@ -74,6 +81,7 @@ ActiveRecord::Schema.define(version: 20140331014311) do
     t.string   "authentication_token"
     t.boolean  "admin"
     t.integer  "market_id"
+    t.integer  "merchant_id"
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree

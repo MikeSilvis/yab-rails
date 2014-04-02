@@ -10,10 +10,6 @@ class User < ActiveRecord::Base
   has_many :locations, as: :locationable
   belongs_to :market
 
-  def find_location(lat, lng)
-    locations.within_range(lat, lng).first_or_create(latitude: lat, longitude: lng)
-  end
-
   def self.find_or_create_from_facebook(token)
     facebook = Yab::Facebook.new(token).me
     params = {
@@ -27,12 +23,20 @@ class User < ActiveRecord::Base
     User.where(email: params[:email]).first_or_create!(params)
   end
 
+  def register_location(lat, lng)
+    locations
+      .within_range(lat, lng)
+      .where(created_at: DateTime.now.beginning_of_day..DateTime.now.end_of_day)
+      .first_or_create!(latitude: lat, longitude: lng)
+      .increment(:ping_count)
+  end
+
   def phone_number=(value)
     super(value.to_s.gsub(/\D/, ''))
   end
 
   def lat_lng
-    locations.map { |l| { lat: l.latitude, lng: l.longitude } }
+    locations.checkin.map { |l| { lat: l.latitude, lng: l.longitude } }
   end
 
   private
