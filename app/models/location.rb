@@ -10,6 +10,6 @@ class Location < ActiveRecord::Base
   end
 
   def self.checkin(ping_min = 2)
-    where('ping_count > ?', ping_min)
+    where('ping_count >= ?', ping_min)
   end
 end
