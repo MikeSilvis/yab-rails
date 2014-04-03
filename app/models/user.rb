@@ -27,8 +27,9 @@ class User < ActiveRecord::Base
     locations
       .within_range(lat, lng)
       .where(created_at: DateTime.now.beginning_of_day..DateTime.now.end_of_day)
-      .first_or_create!(latitude: lat, longitude: lng)
-      .increment(:ping_count)
+      .first_or_create!(latitude: lat, longitude: lng).tap do |location|
+        location.increment!(:ping_count)
+      end
   end
 
   def phone_number=(value)

@@ -66,6 +66,11 @@ describe User do
     context 'creates a new location when one does not exist' do
       it { expect { subject }.to change { Location.count }.by(1) }
       it { subject.latitude.should == lat_param }
+      it { subject.reload.ping_count.should == 1 }
+      context 'for multiple instances' do
+        before { user.register_location(lat_param, lng_param) }
+        it { subject.reload.ping_count.should == 2 }
+      end
     end
 
     context 'for an existing lat lng' do
