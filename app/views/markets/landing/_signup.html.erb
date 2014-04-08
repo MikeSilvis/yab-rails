@@ -13,7 +13,7 @@
         <input type="tel" class="form-control" placeholder="Phone Number" ng-model='newUser.phone_number' required>
       </div>
       <% if market.present? %>
-        <input type="hidden" ng-model="newUser.market_id" value="<%= market.id %>">
+        <input type="hidden" ng-model="newUser.market_id" value="<%= market.id %>" ng-init="newUser.market_id=1" id='default_market_id'>
       <% else %>
         <div class='form-group'>
           <select class='form-control' required ng-model='newUser.market_id'>

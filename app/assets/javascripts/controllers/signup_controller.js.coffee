@@ -1,6 +1,7 @@
 @app.controller "newUserCtrl", ["$scope", "User", ($scope, User) ->
   $scope.newUser = {
     beta: true
+    market_id: $('#default_market_id').val()
   }
 
   $scope.addUser = ->
