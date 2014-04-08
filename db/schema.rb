@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140408031812) do
+ActiveRecord::Schema.define(version: 20140408034529) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -50,9 +51,12 @@ ActiveRecord::Schema.define(version: 20140408031812) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "beta",       default: true
+    t.boolean  "beta",        default: true
     t.string   "slug"
+    t.hstore   "preferences"
   end
+
+  add_index "markets", ["preferences"], name: "index_markets_on_preferences", using: :gist
 
   create_table "merchants", force: true do |t|
     t.string   "name"
