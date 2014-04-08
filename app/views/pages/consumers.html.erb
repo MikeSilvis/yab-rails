@@ -1,10 +1,9 @@
-<header class="masthead">
-  <%= render :partial => 'layouts/navbar' %>
-  <%= render :partial => 'pages/landing/jumpotron' %>
-</header>
+<% content_for :masthead do %>
+  <%= render partial: 'pages/landing/jumpotron' %>
+<% end %>
 
-<%= render :partial => 'pages/landing/automatic' %>
-<%= render :partial => 'pages/landing/loop' %>
-<%= render :partial => 'pages/landing/competition' %>
+<%= render partial: 'pages/landing/automatic' %>
+<%= render partial: 'pages/landing/loop' %>
+<%= render partial: 'pages/landing/competition' %>
 
-<%= render :partial => 'pages/landing/contact' %>
+<%= render partial: 'pages/landing/contact' %>

@@ -1,5 +1,7 @@
 Yab::Application.routes.draw do
 
+  resources :markets, only: [:show]
+
   get 'partners', to: 'pages#partners'
   get 'consumers', to: 'pages#consumers'
 
@@ -16,5 +18,6 @@ Yab::Application.routes.draw do
   devise_for :users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  root 'pages#consumers'
+  get ':id', to: 'markets#show'
+  root 'markets#show', id: ''
 end

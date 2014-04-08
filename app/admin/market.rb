@@ -3,6 +3,7 @@ ActiveAdmin.register Market do
   form do |f|
     f.inputs "User Details" do
       f.input :name
+      f.input :slug
       f.input :beta
     end
     f.actions
