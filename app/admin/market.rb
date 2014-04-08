@@ -4,8 +4,10 @@ ActiveAdmin.register Market do
     f.inputs "User Details" do
       f.input :name
       f.input :slug
-      f.input :beta
-      f.input :show_greek, as: :select, collection: ["Yes", "No"]
+      f.input :beta, as: :select, include_blank: false, collection: {
+        "True" => true,
+        "False" => false
+      }
     end
     f.actions
   end
@@ -14,7 +16,6 @@ ActiveAdmin.register Market do
     selectable_column
     id_column
     column :name
-    column :beta
     column :created_at
     actions
   end
