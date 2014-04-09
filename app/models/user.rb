@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
     params = {
       facebook_id: facebook['id'],
       name: facebook['name'],
-      #birthday: Date.strptime(facebook['birthday'], '%m/%d/%Y'),
+      # birthday: Date.strptime(facebook['birthday'], '%m/%d/%Y'),
       gender: facebook['gender'],
       email: facebook['email']
 
