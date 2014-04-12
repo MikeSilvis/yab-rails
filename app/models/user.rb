@@ -4,32 +4,22 @@ class User < ActiveRecord::Base
   devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable
   before_save :set_authentication_token, if: proc { |u| u.authentication_token.blank? }
-  before_validation :set_random_password, on: :create
+  before_validation :set_random_password, on: :create, if: proc { |u| u.password.blank? }
   devise :database_authenticatable
 
-  has_many :locations, as: :locationable
   belongs_to :market
+  has_many :checkins
 
   def self.find_or_create_from_facebook(token)
     facebook = Yab::Facebook.new(token).me
     params = {
       facebook_id: facebook['id'],
       name: facebook['name'],
-      # birthday: Date.strptime(facebook['birthday'], '%m/%d/%Y'),
+      birthday: (facebook['birthday'] if facebook['birthday'].present?),
       gender: facebook['gender'],
       email: facebook['email']
-
     }
     User.where(email: params[:email]).first_or_create!(params)
-  end
-
-  def register_location(lat, lng)
-    locations
-      .within_range(lat, lng)
-      .where(created_at: DateTime.now.beginning_of_day..DateTime.now.end_of_day)
-      .first_or_create!(latitude: lat, longitude: lng).tap do |location|
-        location.increment!(:ping_count)
-      end
   end
 
   def phone_number=(value)
@@ -37,7 +27,17 @@ class User < ActiveRecord::Base
   end
 
   def lat_lng
-    locations.checkin.map { |l| { lat: l.latitude, lng: l.longitude } }
+    checkins.include(:location).map { |l| { lat: l.latitude, lng: l.longitude } }
+  end
+
+  def register_checkin(attrs)
+    location = Location.for_beacon(attrs)
+    if location
+      checkins
+        .where(location_id: location.id)
+        .where(created_at: DateTime.now.beginning_of_day..DateTime.now.end_of_day)
+        .first_or_create!(merchant_id: location.merchant_id)
+    end
   end
 
   private

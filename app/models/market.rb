@@ -1,7 +1,8 @@
 class Market < ActiveRecord::Base
   has_many :users
   has_many :locations
-  store_accessor :preferences, :beta, :beta
+  has_many :merchants, through: :locations
+  store_accessor :preferences, :beta
 
   def slug=(value)
     self[:slug] = value.parameterize

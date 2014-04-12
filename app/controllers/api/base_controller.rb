@@ -8,4 +8,8 @@ class Api::BaseController < ApplicationController
     @current_user  = User.find_by(authentication_token: params[:authentication_token])
     render json: :unauthorized, status: :unauthorized unless current_user
   end
+
+  def set_format
+    request.format = 'json'
+  end
 end

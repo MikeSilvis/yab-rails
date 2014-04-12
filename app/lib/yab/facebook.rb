@@ -7,7 +7,9 @@ class Yab::Facebook
   end
 
   def me
-    client.get_objects('me')['me']
+    client.get_objects('me')['me'].tap do |facebook|
+      facebook['birthday'] = Date.strptime(facebook['birthday'], '%m/%d/%Y')
+    end
   end
 
   private

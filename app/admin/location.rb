@@ -2,7 +2,7 @@ ActiveAdmin.register Location do
   index do
     selectable_column
     id_column
-    column :locationable
+    column :merchant
     column :created_at
     column :latitude
     column :longitude

@@ -22,6 +22,7 @@ ActiveAdmin.register User do
   end
 
   filter :email
+  filter :name
   filter :market
 
   form do |f|

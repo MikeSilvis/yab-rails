@@ -30,6 +30,7 @@ gem 'sass-rails', '4.0.2'
 group :development, :test do
   gem 'debugger'
   gem 'debugger-ruby_core_source'
+  gem 'factory_girl_rails'
   gem 'quiet_assets'
   gem 'rspec-rails'
 end

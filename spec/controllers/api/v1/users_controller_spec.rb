@@ -22,12 +22,8 @@ describe Api::V1::UsersController do
   end
 
   describe 'GET :show' do
-    let(:user_1) do
-      User.create(name: 'Mike Silvis', email: 'mike@getyab.com')
-    end
-    let(:user_2) do
-      User.create(name: 'Alex Leventer', email: 'alex@getyab.com')
-    end
+    let(:user_1) { create :user }
+    let(:user_2) { create :user }
     let(:params) do
       { id: id, authentication_token: user_1.authentication_token }
     end

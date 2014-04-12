@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   attr_reader :current_user
   after_action :set_csrf_cookie
+  before_action :set_format
 
   def verified_request?
     super || form_authenticity_token == request.headers['X-XSRF-TOKEN']
@@ -20,5 +21,9 @@ class ApplicationController < ActionController::Base
 
   def authenticate_admin_user!
     @current_user = warden.user
+  end
+
+  def set_format
+    request.format = 'html'
   end
 end

@@ -5,10 +5,10 @@ Yab::Application.routes.draw do
   get 'partners', to: 'pages#partners'
   get 'consumers', to: 'pages#consumers'
 
-  namespace :api do
+  namespace :api, defaults: { format: 'json' } do
     namespace :v1 do
       resources :users, only: [:create, :index, :show]
-      resources :locations, only: [:create]
+      resources :checkins, only: [:create]
       resources :merchant, only: [:index]
       resources :authentication, only: [:create]
     end

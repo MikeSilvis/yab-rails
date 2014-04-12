@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140408042619) do
+ActiveRecord::Schema.define(version: 20140413003957) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,19 +32,29 @@ ActiveRecord::Schema.define(version: 20140408042619) do
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
-  create_table "locations", force: true do |t|
-    t.integer  "locationable_id"
-    t.string   "locationable_type"
+  create_table "checkins", force: true do |t|
+    t.integer  "location_id"
+    t.integer  "merchant_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "latitude",          precision: 15, scale: 10
-    t.decimal  "longitude",         precision: 15, scale: 10
-    t.integer  "ping_count"
+  end
+
+  create_table "locations", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.decimal  "latitude",    precision: 15, scale: 10
+    t.decimal  "longitude",   precision: 15, scale: 10
     t.string   "street"
     t.string   "state"
     t.integer  "zipcode"
     t.string   "city"
     t.integer  "market_id"
+    t.string   "uuid"
+    t.string   "identifier"
+    t.string   "major"
+    t.string   "minor"
+    t.integer  "merchant_id"
   end
 
   create_table "markets", force: true do |t|
