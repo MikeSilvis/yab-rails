@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   end
 
   def lat_lng
-    #checkins.include(:location).map { |l| { lat: l.latitude, lng: l.longitude } }
+    # checkins.include(:location).map { |l| { lat: l.latitude, lng: l.longitude } }
   end
 
   def register_checkin(attrs)
