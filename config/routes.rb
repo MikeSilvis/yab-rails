@@ -9,7 +9,7 @@ Yab::Application.routes.draw do
     namespace :v1 do
       resources :users, only: [:create, :index, :show]
       resources :checkins, only: [:create]
-      resources :merchant, only: [:index]
+      resources :merchants, only: [:index]
       resources :authentication, only: [:create]
     end
   end
