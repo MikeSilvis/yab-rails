@@ -18,7 +18,10 @@ ActiveAdmin.register User do
       row :phone_number
       row :market
     end
-    render 'map'
+
+    panel 'Discussion' do
+      render 'admin/shared/disqus'
+    end
   end
 
   filter :email

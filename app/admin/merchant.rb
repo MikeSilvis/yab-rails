@@ -7,6 +7,9 @@ ActiveAdmin.register Merchant do
     selectable_column
     id_column
     column :name
+    column "Manager", sortable: :user_id do |merchant|
+      link_to merchant.user.name, [:admin, merchant.user]
+    end
     column "State", sortable: :aasm_state do |merchant|
       status_tag merchant.human_state
     end
@@ -18,9 +21,11 @@ ActiveAdmin.register Merchant do
       f.input :name
       f.input :facebook
       f.input :twitter
+      f.input :user, as: :select, collection: User.all
       f.input :avatar, as: :file, hint: f.template.image_tag(merchant.avatar.thumb('200x200#').url)
       f.input :aasm_state, as: :select, collection: Merchant::STATES.invert, include_blank: false
     end
+
     f.inputs 'Location' do
       f.has_many :locations, allow_destroy: true, heading: '' do |cf|
         cf.input :street
@@ -47,7 +52,8 @@ ActiveAdmin.register Merchant do
       attributes_table_for resource, :facebook
       attributes_table_for resource, :twitter
       attributes_table_for resource do
-        row("Status") { status_tag merchant.human_state }
+        row('Account Manager') { link_to(merchant.user.name, [:admin, merchant.user]) }
+        row('Status') { status_tag merchant.human_state }
         row('Logo') { image_tag(merchant.avatar.thumb('400x200#').url) }
       end
     end

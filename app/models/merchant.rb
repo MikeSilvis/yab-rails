@@ -4,6 +4,8 @@ class Merchant < ActiveRecord::Base
   dragonfly_accessor :avatar
   accepts_nested_attributes_for :locations, allow_destroy: true
   accepts_nested_attributes_for :users, allow_destroy: true
+  belongs_to :user
+
   STATES = {
     demand_generation: 'Demand Generation',
     lead: 'Lead',

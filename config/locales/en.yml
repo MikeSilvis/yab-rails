@@ -4,3 +4,4 @@ en:
       merchant:
         aasm_state: "State of Sale"
         avatar: 'Logo'
+        user: Account Manager
