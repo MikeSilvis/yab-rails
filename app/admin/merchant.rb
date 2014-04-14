@@ -1,7 +1,25 @@
 ActiveAdmin.register Merchant do
+
+  filter :name
+  filter :aasm_state, as: :select, collection: proc { Merchant::STATES.invert }
+
+  index do
+    selectable_column
+    id_column
+    column :name
+    column "State", sortable: :aasm_state do |merchant|
+      status_tag merchant.human_state
+    end
+    actions
+  end
+
   form do |f|
     f.inputs 'Merchant Information' do
       f.input :name
+      f.input :facebook
+      f.input :twitter
+      f.input :avatar, as: :file, hint: f.template.image_tag(merchant.avatar.thumb('200x200#').url)
+      f.input :aasm_state, as: :select, collection: Merchant::STATES.invert, include_blank: false
     end
     f.inputs 'Location' do
       f.has_many :locations, allow_destroy: true, heading: '' do |cf|
@@ -24,9 +42,14 @@ ActiveAdmin.register Merchant do
   end
 
   show do
-
     panel 'Basic Information' do
       attributes_table_for resource, :name
+      attributes_table_for resource, :facebook
+      attributes_table_for resource, :twitter
+      attributes_table_for resource do
+        row("Status") { status_tag merchant.human_state }
+        row('Logo') { image_tag(merchant.avatar.thumb('400x200#').url) }
+      end
     end
 
     panel 'Contacts' do
@@ -55,6 +78,10 @@ ActiveAdmin.register Merchant do
           link_to location.market.name, [:admin, location.market] if location.market
         end
       end
+    end
+
+    panel 'Discussion' do
+      render 'admin/shared/disqus'
     end
 
   end

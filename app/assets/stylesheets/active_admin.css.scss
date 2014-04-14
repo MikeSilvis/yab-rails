@@ -11,6 +11,31 @@
 @import "active_admin/mixins";
 @import "active_admin/base";
 
+.status_tag.demand_generation {
+  background: #d9ead3;
+  color:black;
+}
+.status_tag.lead {
+  background: #93c47d;
+  color:black;
+}
+.status_tag.develop {
+  background: #93c47d;
+  color:black;
+}
+.status_tag.demo {
+  background: #38761d;
+  color:black;
+}
+.status_tag.close {
+  background: #38761d;
+  color:black;
+}
+.status_tag.deploy {
+  background: #d9ead3;
+  color:black;
+}
+
 // Overriding any non-variable SASS must be done after the fact.
 // For example, to change the default status-tag color:
 //
