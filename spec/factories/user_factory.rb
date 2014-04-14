@@ -7,6 +7,7 @@ FactoryGirl.define do
 
   factory :admin, class: User do
     sequence(:name)  { |n| "Admin Doe #{n}" }
+    sequence(:email)  { |n| "admin#{n}@getyab.com" }
     admin      true
   end
 end

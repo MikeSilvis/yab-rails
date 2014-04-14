@@ -22,7 +22,7 @@ ActiveAdmin.register Merchant do
       f.input :facebook
       f.input :twitter
       f.input :user, as: :select, collection: User.all
-      f.input :avatar, as: :file, hint: f.template.image_tag(merchant.avatar.thumb('200x200#').url)
+      f.input :avatar, as: :file, hint: f.template.image_tag(merchant.thumb_url('200x200#'))
       f.input :aasm_state, as: :select, collection: Merchant::STATES.invert, include_blank: false
     end
 
@@ -54,7 +54,7 @@ ActiveAdmin.register Merchant do
       attributes_table_for resource do
         row('Account Manager') { link_to(merchant.user.name, [:admin, merchant.user]) }
         row('Status') { status_tag merchant.human_state }
-        row('Logo') { image_tag(merchant.avatar.thumb('400x200#').url) }
+        row('Logo') { image_tag(merchant.thumb_url('400x400#')) }
       end
     end
 

@@ -4,10 +4,6 @@ ActiveAdmin.register Market do
     f.inputs "User Details" do
       f.input :name
       f.input :slug
-      f.input :beta, as: :select, include_blank: false, collection: {
-        "True" => true,
-        "False" => false
-      }
     end
     f.actions
   end

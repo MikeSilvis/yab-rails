@@ -5,6 +5,7 @@ class Merchant < ActiveRecord::Base
   accepts_nested_attributes_for :locations, allow_destroy: true
   accepts_nested_attributes_for :users, allow_destroy: true
   belongs_to :user
+  validates :user, presence: true
 
   STATES = {
     demand_generation: 'Demand Generation',
@@ -24,5 +25,9 @@ class Merchant < ActiveRecord::Base
 
   def human_state
     STATES[aasm_state.to_sym]
+  end
+
+  def thumb_url(dimensions)
+    avatar.thumb(dimensions).url if avatar
   end
 end
