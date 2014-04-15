@@ -12,6 +12,20 @@ class Yab::Facebook
     end
   end
 
+  def self.cover_photo(facebook_id)
+    Rails.cache.fetch("cover_photo_#{facebook_id}") do
+      url = "http://graph.facebook.com/#{facebook_id}?fields=cover"
+      JSON.parse(Faraday.get(url).body)['cover'].slice('source', 'offset_y')
+    end
+  end
+
+  def self.profile_photo(facebook_id)
+    Rails.cache.fetch("profile_photo_#{facebook_id}") do
+      url = "http://graph.facebook.com/#{facebook_id}/picture?width=100&height=100"
+      Faraday.get(url).headers['location']
+    end
+  end
+
   private
 
   def client

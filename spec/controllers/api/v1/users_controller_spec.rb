@@ -39,6 +39,7 @@ describe Api::V1::UsersController do
       let(:id) { user_1.id }
       before { get :show, params  }
       it { auth_token.should == user_1.authentication_token }
+      it { user_response['profile_photo_url'].should == 'http://mikesilvis.com/myimage.png' }
     end
 
     context 'authenticated request for another user' do

@@ -295,6 +295,7 @@ DEPENDENCIES
   dragonfly
   dragonfly-s3_data_store
   factory_girl_rails
+  faraday
   font-awesome-rails
   geokit-rails
   gmaps4rails

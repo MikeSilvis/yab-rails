@@ -44,6 +44,11 @@ RSpec.configure do |config|
       "updated_time" => "2014-02-23T02:47:57+0000",
       "username" => "mike.silvis"
     )
+    Yab::Facebook.stub(:profile_photo).and_return('http://mikesilvis.com/myimage.png')
+    Yab::Facebook.stub(:cover_photo).and_return(
+      'source' => 'http://mikesilvis.com/mycoverimage.png',
+      'offset_y' => '40'
+    )
   end
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
