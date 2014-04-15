@@ -30,6 +30,7 @@ gem 'dragonfly-s3_data_store'
 gem 'font-awesome-rails'
 gem 'geokit-rails'
 gem 'sass-rails', '4.0.2'
+gem 'turbolinks'
 
 group :production do
   gem 'rack-cache', require: 'rack/cache'
