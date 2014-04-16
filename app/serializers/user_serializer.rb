@@ -5,7 +5,10 @@ class UserSerializer < ActiveModel::Serializer
              :profile_photo_url,
              :cover_photo_url,
              :cover_photo_offset,
-             :facebook_id
+             :facebook_id,
+             :level_name,
+             :level_icon_url,
+             :yabs
 
   def attributes
     super.tap do |hash|
@@ -23,6 +26,17 @@ class UserSerializer < ActiveModel::Serializer
 
   def cover_photo_offset
     cover_photo['offset_y']
+  end
+
+  def yabs
+    24000
+  end
+
+  def level_name
+    'Town Hero'
+  end
+
+  def level_icon_url
   end
 
   private

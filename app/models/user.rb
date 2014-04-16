@@ -24,10 +24,6 @@ class User < ActiveRecord::Base
     super(value.to_s.gsub(/\D/, ''))
   end
 
-  def lat_lng
-    # checkins.include(:location).map { |l| { lat: l.latitude, lng: l.longitude } }
-  end
-
   def register_checkin(attrs)
     location = Location.for_beacon(attrs)
     if location
