@@ -29,7 +29,7 @@ class UserSerializer < ActiveModel::Serializer
   end
 
   def yabs
-    24000
+    24_000
   end
 
   def level_name
