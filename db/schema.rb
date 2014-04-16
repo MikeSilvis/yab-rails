@@ -101,8 +101,6 @@ ActiveRecord::Schema.define(version: 20140415043640) do
     t.boolean  "admin"
     t.integer  "market_id"
     t.integer  "merchant_id"
-    t.string   "profile_photo_uid"
-    t.string   "cover_photo_uid"
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree

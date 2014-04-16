@@ -5,10 +5,6 @@ class User < ActiveRecord::Base
   before_validation :set_random_password, on: :create, if: proc { |u| u.password.blank? }
   devise :database_authenticatable
 
-  extend Dragonfly::Model
-  dragonfly_accessor :cover_photo
-  dragonfly_accessor :profile_photo
-
   belongs_to :market
   has_many :checkins
 
