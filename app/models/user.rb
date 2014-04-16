@@ -1,11 +1,13 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable
   before_save :set_authentication_token, if: proc { |u| u.authentication_token.blank? }
   before_validation :set_random_password, on: :create, if: proc { |u| u.password.blank? }
   devise :database_authenticatable
+
+  extend Dragonfly::Model
+  dragonfly_accessor :cover_photo
+  dragonfly_accessor :profile_photo
 
   belongs_to :market
   has_many :checkins

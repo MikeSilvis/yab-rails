@@ -8,6 +8,8 @@ Dragonfly.app.configure do
   protect_from_dos_attacks true
   secret "892d9ee6f26bc9bd3e2e761d0502b186115a800218262cf7a85bff7720b5dfca"
 
+  url_host ENV['DEFAULT_HOST'] || 'http://localhost:3000'
+
   url_format "/media/:job/:name"
 
   datastore :s3,

@@ -1,4 +1,4 @@
-FactoryGirl.create :admin, email: 'mikesilvis@gmail.com', password: 'michael123'
+FactoryGirl.create :admin, email: 'mikesilvis@gmail.com', password: 'michael123', facebook_id: 'mikesilvis'
 
 merchant = FactoryGirl.create :merchant
 market = FactoryGirl.create :market
