@@ -28,15 +28,18 @@ class UserSerializer < ActiveModel::Serializer
     cover_photo['offset_y']
   end
 
+  include ActionView::Helpers::NumberHelper
   def yabs
-    24_000
+    number_with_delimiter 24_000
   end
 
   def level_name
     'Town Hero'
   end
 
+  include ActionView::Helpers::AssetTagHelper
   def level_icon_url
+    "http://localhost:3000/assets/zap.png"
   end
 
   private
