@@ -17,7 +17,7 @@ describe Api::V1::AuthenticationController do
         JSON.parse(response.body)['user']['authentication_token']
       end
       before { post :create, params }
-      it { assert_response 200 }
+      it { assert_response :created }
       it { authentication_token.should_not be_nil }
     end
   end

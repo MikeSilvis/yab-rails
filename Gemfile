@@ -32,8 +32,8 @@ gem 'sass-rails', '4.0.2'
 gem 'turbolinks'
 
 group :production do
-  gem 'rack-cache', require: 'rack/cache'
   gem 'bugsnag'
+  gem 'rack-cache', require: 'rack/cache'
 end
 
 group :development, :test do

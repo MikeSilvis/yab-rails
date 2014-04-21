@@ -2,7 +2,7 @@ class Api::V1::AuthenticationController < Api::BaseController
   skip_before_filter :authenticate_user!, only: [:create]
 
   def create
-    render json: current_user
+    render json: current_user, status: :created
   end
 
   private

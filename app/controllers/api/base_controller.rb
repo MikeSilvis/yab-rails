@@ -1,5 +1,6 @@
 class Api::BaseController < ApplicationController
   skip_before_action :verify_authenticity_token
+  rescue_from ActiveRecord::RecordNotFound, with: :not_found
   before_action :authenticate_user!
 
   private
@@ -11,5 +12,9 @@ class Api::BaseController < ApplicationController
 
   def set_format
     request.format = 'json'
+  end
+
+  def not_found
+    render json: :not_found, status: :not_found
   end
 end

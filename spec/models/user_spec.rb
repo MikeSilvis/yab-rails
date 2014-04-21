@@ -62,7 +62,7 @@ describe User do
 
     context 'for a non-exsistant location' do
       let(:attr_params) { { uuid: 'random', identifier: location.identifier } }
-      it { expect { subject }.to change { Checkin.count }.by(0) }
+      it { expect { subject }.to raise_error(ActiveRecord::RecordNotFound) }
     end
 
     context 'creates a new checkin when one does not exist' do

@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
   end
 
   def register_checkin(attrs)
-    location = Location.for_beacon(attrs)
+    location = Location.for_beacon!(attrs)
     if location
       checkins
         .where(location_id: location.id)

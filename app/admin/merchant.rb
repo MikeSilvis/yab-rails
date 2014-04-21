@@ -31,8 +31,10 @@ ActiveAdmin.register Merchant do
         cf.input :street
         cf.input :city
         cf.input :state
-        cf.input :market_id, as: :select, collection: Market.all
         cf.input :zipcode
+        cf.input :market_id, as: :select, collection: Market.all
+        cf.input :major
+        cf.input :minor
       end
     end
 

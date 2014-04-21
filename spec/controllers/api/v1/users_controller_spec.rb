@@ -16,7 +16,7 @@ describe Api::V1::UsersController do
     end
     context 'json response' do
       before { post :create, user: params }
-      it { assert_response 200 }
+      it { assert_response :created }
       it { JSON.parse(response.body)['user']['name'].should == params[:name] }
     end
   end
