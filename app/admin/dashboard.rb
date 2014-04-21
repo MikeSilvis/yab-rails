@@ -13,7 +13,7 @@ ActiveAdmin.register_page "Dashboard" do
               link_to(user.market.name, admin_market_path(user.market)) if user.market
             end
             column("Registered on") do |user|
-              user.created_a
+              user.created_at
             end
           end
         end
