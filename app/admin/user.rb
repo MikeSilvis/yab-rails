@@ -17,6 +17,7 @@ ActiveAdmin.register User do
       row :name
       row :phone_number
       row :market
+      row :yabs
     end
 
     panel 'Discussion' do

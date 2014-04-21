@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140421172217) do
+ActiveRecord::Schema.define(version: 20140421205953) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,14 @@ ActiveRecord::Schema.define(version: 20140421172217) do
     t.string   "aasm_state", default: "demand_generation"
     t.string   "avatar_uid"
     t.integer  "user_id"
+  end
+
+  create_table "rewards", force: true do |t|
+    t.integer  "points"
+    t.string   "name"
+    t.integer  "merchant_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

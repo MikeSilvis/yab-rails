@@ -26,7 +26,7 @@ ActiveAdmin.register Merchant do
       f.input :aasm_state, as: :select, collection: Merchant::STATES.invert, include_blank: false
     end
 
-    f.inputs 'Location' do
+    f.inputs 'Locations' do
       f.has_many :locations, allow_destroy: true, heading: '' do |cf|
         cf.input :street
         cf.input :city
@@ -36,13 +36,21 @@ ActiveAdmin.register Merchant do
       end
     end
 
-    f.inputs 'Contact' do
+    f.inputs 'Contacts' do
       f.has_many :users, allow_destroy: true, heading: '' do |cf|
         cf.input :email
         cf.input :name
         cf.input :phone_number
       end
     end
+
+    f.inputs 'Rewards' do
+      f.has_many :rewards, allow_destroy: true, heading: '' do |cf|
+        cf.input :name
+        cf.input :points
+      end
+    end
+
     f.actions
   end
 
@@ -82,6 +90,17 @@ ActiveAdmin.register Merchant do
         end
         column 'Market' do |location|
           link_to location.market.name, [:admin, location.market] if location.market
+        end
+      end
+    end
+
+    panel 'Rewards' do
+      table_for resource.rewards do
+        column 'Freebie' do |reward|
+          reward.name
+        end
+        column 'Points Needed' do |reward|
+          reward.points
         end
       end
     end

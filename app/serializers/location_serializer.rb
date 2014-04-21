@@ -1,3 +1,3 @@
 class LocationSerializer < ActiveModel::Serializer
-  attributes :id, :latitude, :longitude, :street, :zipcode, :market_id
+  attributes :id, :street, :zipcode, :state, :city, :market_id
 end

@@ -2,6 +2,8 @@ en:
   formtastic:
     labels:
       merchant:
-        aasm_state: "State of Sale"
-        avatar: 'Logo'
+        aasm_state: State of Sale
+        avatar: Logo
         user: Account Manager
+        reward:
+          name: Freebie
