@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe Admin::MerchantsController do
+describe Admin::LevelsController do
 
   let(:user) { create :admin }
-  let!(:merchant) { create :merchant, user: user }
+  let!(:level) { create :level }
 
   before do
     controller.instance_variable_set(:@current_user, user)
@@ -21,12 +21,12 @@ describe Admin::MerchantsController do
   end
 
   describe 'edit :edit' do
-    before { get :edit, id: merchant.id }
+    before { get :edit, id: level.id }
     it { assert_response :success }
   end
 
   describe 'get :show' do
-    before { get :show, id: merchant.id }
+    before { get :show, id: level.id }
     it { assert_response :success }
   end
 end

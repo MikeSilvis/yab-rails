@@ -79,4 +79,15 @@ describe User do
     end
   end
 
+  describe '.current_level' do
+    let!(:level_1) { create :level, points: 0 }
+    let!(:level_2) { create :level, points: 1 }
+    subject { user.current_level }
+    it { should == level_1 }
+    context 'when they have multiple checkins' do
+      let!(:checkin) { create :checkin, user: user }
+      it { should == level_2 }
+    end
+  end
+
 end

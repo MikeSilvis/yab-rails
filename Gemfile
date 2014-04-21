@@ -6,7 +6,6 @@ gem 'aasm'
 gem 'active_model_serializers'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'apipie-rails'
-gem 'bugsnag'
 gem 'cancan'
 gem 'coffee-rails'
 gem 'coffeelint'
@@ -34,6 +33,7 @@ gem 'turbolinks'
 
 group :production do
   gem 'rack-cache', require: 'rack/cache'
+  gem 'bugsnag'
 end
 
 group :development, :test do

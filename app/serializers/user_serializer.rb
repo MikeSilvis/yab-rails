@@ -4,7 +4,6 @@ class UserSerializer < ActiveModel::Serializer
              :name,
              :profile_photo_url,
              :cover_photo_url,
-             :cover_photo_offset,
              :facebook_id,
              :level_name,
              :level_icon_url,
@@ -24,22 +23,18 @@ class UserSerializer < ActiveModel::Serializer
     cover_photo['source']
   end
 
-  def cover_photo_offset
-    cover_photo['offset_y']
-  end
-
   include ActionView::Helpers::NumberHelper
   def yabs
-    number_with_delimiter 24_000
+    number_with_delimiter object.yabs
   end
 
   def level_name
-    'Town Hero'
+    object.current_level.name if object.current_level
   end
 
   include ActionView::Helpers::AssetTagHelper
   def level_icon_url
-    "http://localhost:3000/assets/zap.png"
+    object.current_level.thumb_url('40x40!') if object.current_level
   end
 
   private

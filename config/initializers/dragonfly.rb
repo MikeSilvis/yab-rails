@@ -13,7 +13,7 @@ Dragonfly.app.configure do
   url_format "/media/:job/:name"
 
   datastore :s3,
-    bucket_name: ENV['BUCKET'] || 'yab_dev',
+    bucket_name: ENV['BUCKET'] || 'yabdev',
     access_key_id: 'AKIAJHCAHJH63OI33KLQ',
     secret_access_key: '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'
 end

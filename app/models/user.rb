@@ -34,6 +34,14 @@ class User < ActiveRecord::Base
     end
   end
 
+  def current_level
+    @current_level ||= Level.where('points <= ?', yabs).order('points DESC').first
+  end
+
+  def yabs
+    checkins.count
+  end
+
   private
 
   def set_authentication_token

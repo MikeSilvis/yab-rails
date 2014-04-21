@@ -34,6 +34,9 @@ ActiveAdmin.register Market do
       end
     end
 
+    panel 'Discussion' do
+      render 'admin/shared/disqus'
+    end
   end
 
   controller do
