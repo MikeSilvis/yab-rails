@@ -1,6 +1,10 @@
 class CheckinSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :message
   has_one :location
   has_one :merchant
   has_one :user
+
+  def message
+    'BOOBS'
+  end
 end

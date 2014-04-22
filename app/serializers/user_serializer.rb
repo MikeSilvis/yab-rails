@@ -20,7 +20,7 @@ class UserSerializer < ActiveModel::Serializer
   end
 
   def cover_photo_url
-    cover_photo['source']
+    Yab::Facebook.cover_photo(object.facebook_id)['source']
   end
 
   include ActionView::Helpers::NumberHelper
@@ -35,11 +35,5 @@ class UserSerializer < ActiveModel::Serializer
   include ActionView::Helpers::AssetTagHelper
   def level_icon_url
     object.current_level.thumb_url('40x40!') if object.current_level
-  end
-
-  private
-
-  def cover_photo
-    Yab::Facebook.cover_photo(object.facebook_id)
   end
 end

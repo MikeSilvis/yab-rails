@@ -8,6 +8,6 @@ module Avatar
   end
 
   def thumb_url(dimensions)
-    avatar.thumb(dimensions).url if avatar
+    avatar.thumb(dimensions).encode('png').url if avatar
   end
 end
