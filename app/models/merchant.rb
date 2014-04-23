@@ -8,6 +8,7 @@ class Merchant < ActiveRecord::Base
   belongs_to :user
   validates :user, presence: true
   include Avatar
+  attr_accessor :for_user
 
   STATES = {
     demand_generation: 'Demand Generation',

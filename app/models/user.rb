@@ -6,8 +6,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable
 
   belongs_to :market
+  belongs_to :merchant
   has_many :checkins
   has_many :locations, through: :checkins
+  has_many :merchants, through: :checkins
 
   def self.find_or_create_from_facebook(token)
     facebook = Yab::Facebook.new(token).me
@@ -36,21 +38,19 @@ class User < ActiveRecord::Base
   end
 
   def current_level
-    @current_level ||= Level.current(yabs)
+    @current_level ||= Level.current(points)
   end
 
   def next_level
-    @next_level ||= Level.next(yabs)
+    @next_level ||= Level.next(points)
   end
 
-  def yabs
-    checkins.count * 5
+  def points
+    @points ||= checkins.count * 5
   end
 
   def next_level_points
-    next_level.points - yabs
-  rescue
-    0
+    next_level.try(:points) || 0
   end
 
   private

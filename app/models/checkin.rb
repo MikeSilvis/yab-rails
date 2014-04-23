@@ -7,5 +7,15 @@ class Checkin < ActiveRecord::Base
   validates :merchant, presence: true
   validates :user, presence: true
 
-  delegate :next_level_points, to: :user
+  def points
+    @points ||= user.checkins.where(merchant: merchant).count * 5
+  end
+
+  def next_reward
+    @next_reward ||= merchant.rewards.next(points)
+  end
+
+  def next_reward_points
+    next_reward.try(:points) || 0
+  end
 end

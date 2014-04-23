@@ -57,11 +57,11 @@ describe User do
 
   describe '.register_checkin' do
     let!(:location) { create :location, merchant: (create :merchant) }
-    let(:attr_params) { { uuid: location.uuid, identifier: location.identifier } }
+    let(:attr_params) { { major: location.major, minor: location.minor } }
     subject { user.register_checkin(attr_params) }
 
     context 'for a non-exsistant location' do
-      let(:attr_params) { { uuid: 'random', identifier: location.identifier } }
+      let(:attr_params) { { major: 123, minor: location.minor } }
       it { expect { subject }.to raise_error(ActiveRecord::RecordNotFound) }
     end
 
@@ -103,16 +103,5 @@ describe User do
         it { should == level_3 }
       end
     end
-
-    describe '.next_level_points' do
-      subject { user.next_level_points }
-      it { should == 5 }
-      context 'when they hit the max level' do
-        let!(:checkin_2) { create :checkin, user: user }
-        let!(:checkin_3) { create :checkin, user: user }
-        it { should == 0 }
-      end
-    end
-
   end
 end

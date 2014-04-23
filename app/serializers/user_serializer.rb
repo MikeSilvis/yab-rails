@@ -5,14 +5,30 @@ class UserSerializer < ActiveModel::Serializer
              :profile_photo_url,
              :cover_photo_url,
              :facebook_id,
-             :level_name,
-             :level_icon_url,
-             :yabs
+             :level
+
+  has_many :merchants
+
+  def merchants
+    object.merchants.distinct.map do |m|
+      m.for_user = object
+      m
+    end
+  end
 
   def attributes
     super.tap do |hash|
       hash[:authentication_token] = object.authentication_token if object == current_user
     end
+  end
+
+  def level
+    {
+      points: object.points,
+      next: object.next_level_points,
+      icon_url: level_icon_url,
+      name: level_name
+    }
   end
 
   def profile_photo_url
@@ -21,11 +37,6 @@ class UserSerializer < ActiveModel::Serializer
 
   def cover_photo_url
     Yab::Facebook.cover_photo(object.facebook_id)['source']
-  end
-
-  include ActionView::Helpers::NumberHelper
-  def yabs
-    number_with_delimiter object.yabs
   end
 
   def level_name
