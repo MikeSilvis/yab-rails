@@ -5,9 +5,7 @@ class MerchantSerializer < ActiveModel::Serializer
 
   def attributes
     super.tap do |hash|
-      if object.for_user
-        hash[:level] = level
-      end
+      hash[:level] = level if object.for_user
     end
   end
 
