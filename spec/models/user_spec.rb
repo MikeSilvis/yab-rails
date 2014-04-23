@@ -80,9 +80,10 @@ describe User do
   end
 
   describe 'levels' do
-    let!(:level_1) { create :level, points: 0 }
-    let!(:level_2) { create :level, points: 1 }
-    let!(:level_3) { create :level, points: 2 }
+    let!(:level_1) { create :level, points: 5 }
+    let!(:level_2) { create :level, points: 10 }
+    let!(:level_3) { create :level, points: 15 }
+    let!(:checkin_1) { create :checkin, user: user }
 
     describe '.current_level' do
       subject { user.current_level }
@@ -105,10 +106,10 @@ describe User do
 
     describe '.next_level_points' do
       subject { user.next_level_points }
-      it { should == 1 }
+      it { should == 5 }
       context 'when they hit the max level' do
-        let!(:checkin_1) { create :checkin, user: user }
         let!(:checkin_2) { create :checkin, user: user }
+        let!(:checkin_3) { create :checkin, user: user }
         it { should == 0 }
       end
     end
