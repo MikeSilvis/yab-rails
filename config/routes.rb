@@ -5,7 +5,7 @@ Yab::Application.routes.draw do
   namespace :api, defaults: { format: 'json' } do
     namespace :v1 do
       resources :users, only: [:create, :index, :show]
-      resources :checkins, only: [:create]
+      resources :checkins, only: [:create, :show]
       resources :merchants, only: [:index]
       resources :authentication, only: [:create]
     end

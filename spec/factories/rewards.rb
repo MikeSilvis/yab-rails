@@ -1,6 +1,6 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
 FactoryGirl.define do
   factory :reward do
+    name "Free Coffeeee!"
+    sequence(:points)  { |n| n }
   end
 end

@@ -1,14 +1,20 @@
 class CheckinSerializer < ActiveModel::Serializer
-  attributes :id, :message, :points, :next_level_points
-  has_one :location
+  attributes :id,
+             :message,
+             :level
+
   has_one :merchant
   has_one :user
 
-  def message
-    location.message
+  def level
+    {
+      earned: Checkin::POINT_VALUE,
+      points: object.points,
+      next: object.next_reward_points
+    }
   end
 
-  def points
-    5
+  def message
+    object.location.message
   end
 end

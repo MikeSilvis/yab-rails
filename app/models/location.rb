@@ -5,10 +5,8 @@ class Location < ActiveRecord::Base
 
   def self.for_beacon!(attrs)
     find_by!(
-      uuid: attrs[:uuid],
-      identifier: attrs[:identifier],
-      major: attrs[:major],
-      minor: attrs[:minor]
+      major: attrs[:major].to_s,
+      minor: attrs[:minor].to_s
     )
   end
 end

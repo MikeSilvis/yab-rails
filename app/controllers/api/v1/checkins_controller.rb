@@ -3,6 +3,10 @@ class Api::V1::CheckinsController < Api::BaseController
     render json: checkin, status: :created
   end
 
+  def show
+    render json: current_user.checkins.find(params.require(:id))
+  end
+
   private
 
   def checkin
