@@ -15,7 +15,7 @@ describe Api::V1::CheckinsController do
     before { post :create, params }
     it do
       checkin_response['id'].should_not be_nil
-      checkin_response['points'].should == 5
+      checkin_response['points'].should eq(5)
       assert_response :created
     end
     context 'with an invalid beacon' do
