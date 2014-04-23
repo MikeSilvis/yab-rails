@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 
   belongs_to :market
   has_many :checkins
+  has_many :locations, through: :checkins
 
   def self.find_or_create_from_facebook(token)
     facebook = Yab::Facebook.new(token).me
@@ -28,18 +29,28 @@ class User < ActiveRecord::Base
     location = Location.for_beacon!(attrs)
     if location
       checkins
-        .where(location_id: location.id)
+        .where(location: location)
         .where(created_at: DateTime.now.beginning_of_day..DateTime.now.end_of_day)
         .first_or_create!(merchant_id: location.merchant_id)
     end
   end
 
   def current_level
-    @current_level ||= Level.where('points <= ?', yabs).order('points DESC').first
+    @current_level ||= Level.current(yabs)
+  end
+
+  def next_level
+    @next_level ||= Level.next(yabs)
   end
 
   def yabs
     checkins.count
+  end
+
+  def next_level_points
+    next_level.points - yabs
+  rescue
+    0
   end
 
   private

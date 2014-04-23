@@ -6,4 +6,6 @@ class Checkin < ActiveRecord::Base
   validates :location, presence: true
   validates :merchant, presence: true
   validates :user, presence: true
+
+  delegate :next_level_points, to: :user
 end

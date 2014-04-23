@@ -28,6 +28,7 @@ ActiveAdmin.register Merchant do
 
     f.inputs 'Locations' do
       f.has_many :locations, allow_destroy: true, heading: '' do |cf|
+        cf.input :message
         cf.input :street
         cf.input :city
         cf.input :state
@@ -89,6 +90,9 @@ ActiveAdmin.register Merchant do
         end
         column 'State' do |location|
           location.state
+        end
+        column 'Custom Checkin Message' do |location|
+          location.message
         end
         column 'Market' do |location|
           link_to location.market.name, [:admin, location.market] if location.market

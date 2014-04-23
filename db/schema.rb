@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140421205953) do
+ActiveRecord::Schema.define(version: 20140422224739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20140421205953) do
     t.string   "major"
     t.string   "minor"
     t.integer  "merchant_id"
+    t.string   "message"
   end
 
   create_table "markets", force: true do |t|

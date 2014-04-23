@@ -79,15 +79,39 @@ describe User do
     end
   end
 
-  describe '.current_level' do
+  describe 'levels' do
     let!(:level_1) { create :level, points: 0 }
     let!(:level_2) { create :level, points: 1 }
-    subject { user.current_level }
-    it { should == level_1 }
-    context 'when they have multiple checkins' do
-      let!(:checkin) { create :checkin, user: user }
-      it { should == level_2 }
-    end
-  end
+    let!(:level_3) { create :level, points: 2 }
 
+    describe '.current_level' do
+      subject { user.current_level }
+      it { should == level_1 }
+      context 'when they have multiple checkins' do
+        let!(:checkin) { create :checkin, user: user }
+        it { should == level_2 }
+      end
+    end
+
+    describe '.next_level' do
+      subject { user.next_level }
+      it { should == level_2 }
+      context 'when they hit the max level' do
+        let!(:checkin_1) { create :checkin, user: user }
+        let!(:checkin_2) { create :checkin, user: user }
+        it { should == level_3 }
+      end
+    end
+
+    describe '.next_level_points' do
+      subject { user.next_level_points }
+      it { should == 1 }
+      context 'when they hit the max level' do
+        let!(:checkin_1) { create :checkin, user: user }
+        let!(:checkin_2) { create :checkin, user: user }
+        it { should == 0 }
+      end
+    end
+
+  end
 end
