@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
   end
 
   def yabs
-    checkins.count
+    checkins.count * 5
   end
 
   def next_level_points
