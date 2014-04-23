@@ -13,9 +13,11 @@ describe Api::V1::CheckinsController do
       }
     end
     before { post :create, params }
-    it { checkin_response['id'].should_not be_nil }
-    it { checkin_response['next_level_points'].should == 0 }
-    it { assert_response :created }
+    it do
+      checkin_response['id'].should_not be_nil
+      checkin_response['points'].should == 5
+      assert_response :created
+    end
     context 'with an invalid beacon' do
       let(:location) { double(uuid: "rabble", identifier: "boom") }
       it { assert_response :not_found }
