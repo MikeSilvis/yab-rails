@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   before_save :set_authentication_token, if: proc { |u| u.authentication_token.blank? }
   before_validation :set_random_password, on: :create, if: proc { |u| u.password.blank? }
+  include Point
   devise :database_authenticatable
 
   belongs_to :market
@@ -35,22 +36,6 @@ class User < ActiveRecord::Base
         .where(created_at: DateTime.now.beginning_of_day..DateTime.now.end_of_day)
         .first_or_create!(merchant_id: location.merchant_id)
     end
-  end
-
-  def current_level
-    @current_level ||= Level.current(points)
-  end
-
-  def next_level
-    @next_level ||= Level.next(points)
-  end
-
-  def points
-    @points ||= checkins.count * Checkin::POINT_VALUE
-  end
-
-  def next_level_points
-    next_level.try(:points) || 0
   end
 
   private

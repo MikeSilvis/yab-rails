@@ -26,8 +26,8 @@ class UserSerializer < ActiveModel::Serializer
     {
       points: object.points,
       next: object.next_level_points,
-      icon_url: level_icon_url,
-      name: level_name
+      icon_url: object.level_icon_url,
+      name: object.level_name
     }
   end
 
@@ -37,14 +37,5 @@ class UserSerializer < ActiveModel::Serializer
 
   def cover_photo_url
     Yab::Facebook.cover_photo(object.facebook_id)['source']
-  end
-
-  def level_name
-    object.current_level.name if object.current_level
-  end
-
-  include ActionView::Helpers::AssetTagHelper
-  def level_icon_url
-    object.current_level.thumb_url('40x40!') if object.current_level
   end
 end

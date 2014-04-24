@@ -1,11 +1,11 @@
 class MerchantSerializer < ActiveModel::Serializer
-  attributes :id, :name, :avatar_url
+  attributes :id, :name, :avatar_url, :overall_level
   has_many :locations
   has_many :rewards
 
   def attributes
     super.tap do |hash|
-      hash[:level] = level if object.for_user
+      hash[:user_level] = user_level if object.for_user
     end
   end
 
@@ -13,7 +13,16 @@ class MerchantSerializer < ActiveModel::Serializer
     object.avatar.thumb('200x200#').url if object.avatar
   end
 
-  def level
+  def overall_level
+    {
+      points: object.points,
+      next: object.next_level_points,
+      icon_url: object.level_icon_url,
+      name: object.level_name
+    }
+  end
+
+  def user_level
     {
       points: points,
       next: next_reward
