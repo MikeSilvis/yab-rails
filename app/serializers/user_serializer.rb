@@ -2,7 +2,7 @@ class UserSerializer < ActiveModel::Serializer
   attributes :id,
              :phone_number,
              :name,
-             :profile_photo_url,
+             :avatar_url,
              :cover_photo_url,
              :facebook_id,
              :level
@@ -31,7 +31,7 @@ class UserSerializer < ActiveModel::Serializer
     }
   end
 
-  def profile_photo_url
+  def avatar_url
     Yab::Facebook.profile_photo(object.facebook_id)
   end
 
