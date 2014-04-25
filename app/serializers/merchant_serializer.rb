@@ -2,6 +2,11 @@ class MerchantSerializer < ActiveModel::Serializer
   attributes :id, :name, :avatar_url, :overall_level
   has_many :locations
   has_many :rewards
+  has_many :users
+
+  def users
+    object.users.distinct
+  end
 
   def attributes
     super.tap do |hash|

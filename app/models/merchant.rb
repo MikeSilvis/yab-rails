@@ -1,6 +1,6 @@
 class Merchant < ActiveRecord::Base
   has_many :locations
-  has_many :users
+  has_many :users, through: :checkins
   has_many :rewards
   has_many :checkins
   accepts_nested_attributes_for :locations, allow_destroy: true
