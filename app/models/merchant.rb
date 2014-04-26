@@ -10,7 +10,7 @@ class Merchant < ActiveRecord::Base
   validates :user, presence: true
   include Avatar
   include Point
-  attr_accessor :for_user
+  INCLUDE_FIELDS = [:rewards, :checkins, :users, :locations]
 
   STATES = {
     demand_generation: 'Demand Generation',

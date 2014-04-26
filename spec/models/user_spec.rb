@@ -103,5 +103,18 @@ describe User do
         it { should == level_3 }
       end
     end
+
+  end
+
+  describe '.user_rewards' do
+    let!(:merchant) { create :merchant }
+    let!(:location) { create :location, merchant: merchant }
+    let!(:reward) { create :reward, merchant: merchant, points: 5 }
+    subject { user.user_rewards.find_by(merchant: merchant) }
+    before { user.register_checkin({ major: location.major, minor: location.minor }) }
+    it { should be_a UserReward }
+    it { subject.reward.should == reward }
+    it { subject.user.should == user }
+    it { subject.merchant.should == merchant }
   end
 end

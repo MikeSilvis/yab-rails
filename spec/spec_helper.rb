@@ -49,6 +49,7 @@ RSpec.configure do |config|
       'source' => 'http://mikesilvis.com/mycoverimage.png',
       'offset_y' => '40'
     )
+    Geokit::Geocoders::GoogleGeocoder.stub(:geocode).and_return(double(lat: 123, lng: 321))
   end
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your

@@ -7,14 +7,13 @@ class UserSerializer < ActiveModel::Serializer
              :facebook_id,
              :level
 
-  has_many :merchants
+  has_many :user_rewards
+  #has_many :merchants
+  #has_many :checkins
 
-  def merchants
-    object.merchants.distinct.map do |m|
-      m.for_user = object
-      m
-    end
-  end
+  #def merchants
+    #object.merchants
+  #end
 
   def attributes
     super.tap do |hash|
@@ -27,7 +26,7 @@ class UserSerializer < ActiveModel::Serializer
       points: object.points,
       next: object.next_level_points,
       icon_url: object.level_icon_url,
-      name: object.level_name
+      name: object.level_name,
     }
   end
 

@@ -10,7 +10,10 @@ class Api::V1::UsersController < Api::BaseController
   end
 
   def show
-    render json: User.find(params.require(:id))
+    render json: User
+                  .where(id: params.require(:id))
+                  .includes(User::INCLUDE_FIELDS)
+                  .first
   end
 
   private
@@ -20,7 +23,7 @@ class Api::V1::UsersController < Api::BaseController
   end
 
   def users
-    @users ||= User.all
+    @users ||= User.includes(User::INCLUDE_FIELDS)
   end
 
   def user_params

@@ -11,6 +11,11 @@ class User < ActiveRecord::Base
   has_many :checkins
   has_many :locations, through: :checkins
   has_many :merchants, through: :checkins
+  has_many :user_rewards
+  has_many :rewards, through: :user_rewards
+  belongs_to :current_level, class_name: 'Level'
+  belongs_to :next_level, class_name: 'Level'
+  INCLUDE_FIELDS = [:current_level, :next_level, :checkins, :rewards, user_rewards: { merchant: Merchant::INCLUDE_FIELDS }]
 
   def self.find_or_create_from_facebook(token)
     facebook = Yab::Facebook.new(token).me

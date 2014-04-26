@@ -2,17 +2,16 @@ require 'active_support/concern'
 
 module Point
   extend ActiveSupport::Concern
-
-  def current_level
-    @current_level ||= Level.current(points)
-  end
-
-  def next_level
-    @next_level ||= Level.next(points)
-  end
-
   def points
-    @points ||= checkins.count * Checkin::POINT_VALUE
+    @points ||= if self.respond_to? :checkins_count
+                  (checkins_count || 0) * Checkin::POINT_VALUE
+                else
+                  calculate_points
+                end
+  end
+
+  def calculate_points
+    checkins.count * Checkin::POINT_VALUE
   end
 
   def next_level_points
