@@ -6,7 +6,7 @@ Dragonfly.app.configure do
   plugin :imagemagick
 
   protect_from_dos_attacks true
-  secret "892d9ee6f26bc9bd3e2e761d0502b186115a800218262cf7a85bff7720b5dfca"
+  secret ENV['DRAGON_SECRET'] || "893d9ee6f26bc9bd3e2e761d0502b186115a800218262cf7a85bff7720b5dfca"
 
   url_host ENV['DEFAULT_HOST'] || 'http://localhost:3000'
 
@@ -14,8 +14,8 @@ Dragonfly.app.configure do
 
   datastore :s3,
     bucket_name: ENV['BUCKET'] || 'yabdev',
-    access_key_id: 'AKIAJHCAHJH63OI33KLQ',
-    secret_access_key: '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'
+    access_key_id: ENV['ACCESS_KEY'],
+    secret_access_key: ENV['SECRET_KEY']
 end
 
 # Logger
