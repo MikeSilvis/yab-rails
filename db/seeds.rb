@@ -6,4 +6,3 @@ merchant = FactoryGirl.create :merchant
 
 FactoryGirl.create :location, merchant: merchant, market: market
 FactoryGirl.create :location, merchant: merchant, market: market
-
