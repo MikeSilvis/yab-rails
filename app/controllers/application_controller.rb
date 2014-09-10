@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   after_action :set_csrf_cookie
   before_action :set_format
 
+  before_filter :set_as_private
+
   def verified_request?
     super || form_authenticity_token == request.headers['X-XSRF-TOKEN']
   end
@@ -25,5 +27,9 @@ class ApplicationController < ActionController::Base
 
   def set_format
     request.format = 'html'
+  end
+
+  def set_as_private
+    expires_now
   end
 end
